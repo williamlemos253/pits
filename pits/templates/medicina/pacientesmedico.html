@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}Pacientes Ativos{% endblock %}
+
+{% block body %} 
+&nbsp;
+{{ super() }}
+
+
+<div class="container">
+  <table class="table table-hover table-responsive" id="pacientes">
+    <thead>
+      <tr>
+        <th>Nº Registro</th>
+        <th >Nome</th>
+        <th>CPF</th>
+        <th>CIRS-G</th>
+        <th>Prontuário</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%- for usuario in usuarios %} 
+      <tr>
+        <th scope="row">{{ usuario.id }}</th>
+        <td>{{ usuario.first_name }} {{ usuario.last_name }}</td>
+        <td>{{ usuario.cpf }}</td>
+        <td><a data-toggle="tooltip" title="Editar" href="/cirsg/{{ usuario.id }}"><i class="fa fa-pencil-square fa-2x coricone" aria-hidden="true"></i></a>
+        <a data-toggle="tooltip" title="Visualizar" href="/cirsgresultado/{{ usuario.id }}"><i class="fa fa-book fa-2x coricone" aria-hidden="true"></i></a></td>
+        <td><a href="/cirsgresultado/{{ usuario.id }}">Resumo </a></td>
+      </tr>
+      {%- endfor %}
+    </tbody>
+  </table>
+</div>
+&nbsp;
+ 
+{% endblock %}
+
+{% block footer %}
+
+
+ {{ super() }}
+ 
+ <div class="col-12 text-right">
+ <a href="/cirsgajuda"><i class="fa fa-question-circle fa-2x mx-auto" aria-hidden="true">Ajuda</i></a>
+ </div>
+ 
+ {% endblock %}
+ 
+ {% block customjs %}
+
+<script>
+ $(document).ready( function() {
+        $('#pacientes').dynatable();
+ });
+</script>
+
+
+
+
+ {% endblock %}
+ 
+ 
+

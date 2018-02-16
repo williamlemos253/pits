@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %} 
+
+&nbsp;
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form action="{{ url_for('pacientesfisio2') }}" accept-charset="UTF-8" method="POST">
+        
+        <div class="input-group">
+          {{ SearchForm.csrf_token }}
+          {{  SearchForm.search(class="form-control pesquisa",  placeholder="Digite o nome do paciente que procura", autocomplete="off") }}
+          <span class="input-group-btn">
+            {{ SearchForm.submit(class="btn btn-info pesquisa") }}
+          </span> 
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+&nbsp;
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nº Registro</th>
+      <th>Paciente</th>
+      <th>Responsável</th>
+      <th>Banho</th>
+      <th>Vestuário</th>
+      <th>Higiene</th>
+      <th>Transferência</th>
+      <th>Continência</th>
+      <th>Alimentação</th>
+      <th>Nível de Dor</th>
+      <th>Data de Registro</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for fisioterapia in fisioterapias %} 
+    <tr>
+      <th scope="row">{{ fisioterapia.id }}</th>
+      <td>{{ fisioterapia.paciente }}</td>
+      <td>{{ fisioterapia.username_profissional }}</td>
+      <td>{{ fisioterapia.banho }}</td>
+      <td>{{ fisioterapia.vestir }}</td>
+      <td>{{ fisioterapia.higiene }}</td>
+      <td>{{ fisioterapia.transferencia }}</td>
+      <td>{{ fisioterapia.continencia }}</td>
+      <td>{{ fisioterapia.alimentacao }}</td>
+      <td>{{ fisioterapia.niveldor }}</td>
+      <td>{{ fisioterapia.datareg }}</td>
+    </tr>
+    {%- endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

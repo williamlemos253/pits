@@ -1,0 +1,219 @@
+{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Dados Fisioterapia{% endblock %}
+
+{# cadastra os dados dos pacientes da fisioterpia na table Afisioterapeutas de acorda com a tabela de Katz #}
+
+{{ super() }}
+{% block body %}
+
+
+{# scripts para altenar imagens de true e false #}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<div class="container">
+            <form method="POST" class="form-group" >
+                        {{ Formfisio.csrf_token }}
+                        {{ Formfisio.hidden_tag() }}
+                        {{ wtf.form_errors(Formfisio, hiddens="only") }}
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{ wtf.form_field(Formfisio.paciente, readonly="True", value=paciente) }}
+                    </div>                   
+                    <div class="col-sm-6">
+                        {{ wtf.form_field(Formfisio.username_profissional, readonly="True", value=current_user.first_name+" "+current_user.last_name) }}
+                    </div>
+                </div>
+  
+  
+                  <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="form-inline">
+                                {{Formfisio.banho(class_="switch switch--shadow")}} 
+                                <label for="banho" id="banho" ></label>
+                                <h5 padding-botton="15px" margin-left="50%">&nbsp;&nbsp;Banho&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+                                <img src="/static/imagens/fisioterapia/icones/banho_pb.svg" class="img-fluid mx-auto float-right" name="BanhoImg" id="BanhoImg" max-width:"100%" width="15%">
+                                                                <script>
+                                                                   $("#banho").click( function(){
+                                                                    if( $(this).is(':checked') ){
+                                                                             $('#BanhoImg').attr('src','/static/imagens/fisioterapia/icones/banho.svg');
+                                                                        }else{
+                                                                          $('#BanhoImg').attr('src','/static/imagens/fisioterapia/icones/banho_pb.svg');
+                                                                        }
+                                                                });
+                                                                </script>
+                            </div>
+                            <hr style="width: 100%; color: #77cbcd; height: 1px; background-color:#77cbcd;" />
+                        
+                            <div class="form-inline">
+                               {{ Formfisio.vestir(class_="switch switch--shadow") }}
+                              <label for="vestir" id="vestir" ></label>
+                              <h5>&nbsp;&nbsp;Vestir-se&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+                              <img src="/static/imagens/fisioterapia/icones/vestir_pb.svg"  class="img-fluid mx-auto"  align="right" style="margin-left: 50%;" name="VestirImg" id="VestirImg" max-width:"100%" width="9%">
+                                        <script>
+                                               $("#vestir").click( function(){
+                                                if( $(this).is(':checked') ){
+                                                         $('#VestirImg').attr('src','/static/imagens/fisioterapia/icones/vestir.svg');
+                                                    }else{
+                                                      $('#VestirImg').attr('src','/static/imagens/fisioterapia/icones/vestir_pb.svg');
+                                                    }
+                                            });
+                                            </script>
+                            </div>
+                            <hr style="width: 100%; color: #77cbcd; height: 1px; background-color:#77cbcd;" /> 
+                        
+                            <div class="form-inline">
+                               {{ Formfisio.higiene(class_="switch switch--shadow") }}
+                               <label for="higiene" id="higiene" ></label>
+                               <h5>&nbsp;&nbsp;Higiene&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+                               <img src="/static/imagens/fisioterapia/icones/higiene_pb.svg"  class="img-fluid mx-auto" name="HigieneImg" id="HigieneImg" max-width:"100%" width="10%">
+                                <script>
+                                               $("#higiene").click( function(){
+                                                if( $(this).is(':checked') ){
+                                                         $('#HigieneImg').attr('src','/static/imagens/fisioterapia/icones/higiene.svg');
+                                                    }else{
+                                                      $('#HigieneImg').attr('src','/static/imagens/fisioterapia/icones/higiene_pb.svg');
+                                                    }
+                                            });
+                                            </script>
+                            </div>
+                            <hr style="width: 100%; color: #77cbcd; height: 1px; background-color:#77cbcd;" />
+                        </div>
+                        
+                        <div class="col-12 col-md-6">
+                            <div class="form-inline">
+                                {{ Formfisio.transferencia(class_="switch switch--shadow") }}
+                                <label for="transferencia" id="transferencia" ></label>
+                                <h5>&nbsp;&nbsp;Transferência&nbsp;&nbsp;&nbsp;</h5>
+                                <img src="/static/imagens/fisioterapia/icones/transfer_pb.svg"  class="img-fluid mx-auto" name="TransferImg" id="TransferImg" max-width:"100%" width="10%">
+                                <script>
+                                               $("#transferencia").click( function(){
+                                                if( $(this).is(':checked') ){
+                                                         $('#TransferImg').attr('src','/static/imagens/fisioterapia/icones/transfer.svg');
+                                                    }else{
+                                                      $('#TransferImg').attr('src','/static/imagens/fisioterapia/icones/transfer_pb.svg');
+                                                    }
+                                            });
+                                            </script>
+                            <hr style="width: 100%; color: #77cbcd; height: 1px; background-color:#77cbcd;" />
+                            </div>
+                          
+                   
+                        
+                            <div class="form-inline">
+                                    {{ Formfisio.continencia(class_="switch switch--shadow") }}
+                                    <label for="continencia" id="continencia" ></label>
+                                    <h5>&nbsp;&nbsp;Continência&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+                                    <img src="/static/imagens/fisioterapia/icones/conti_pb.svg"  class="img-fluid mx-auto" name="ContiImg" id="ContiImg" max-width:"100%" width="11%">
+                                <script>
+                                               $("#continencia").click( function(){
+                                                if( $(this).is(':checked') ){
+                                                         $('#ContiImg').attr('src','/static/imagens/fisioterapia/icones/conti.svg');
+                                                    }else{
+                                                      $('#ContiImg').attr('src','/static/imagens/fisioterapia/icones/conti_pb.svg');
+                                                    }
+                                            });
+                                            </script>
+                                            &nbsp;
+                                            &nbsp;
+                                    <hr style="width: 100%; color: #77cbcd; height: 1px; background-color:#77cbcd;" />
+                            </div>
+                        
+                           
+                            
+                            <div class="form-inline">
+                                    {{ Formfisio.alimentacao(class_="switch switch--shadow") }}
+                                    <label for="alimentacao" id="alimentacao" ></label>
+                                <h5>&nbsp;&nbsp;Alimentação&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+                                 <img src="/static/imagens/fisioterapia/icones/comida_pb.svg" class="img-fluid mx-auto" name="ComidaImg" id="ComidaImg" max-width:"100%" width="11%">
+                                <script>
+                                               $("#alimentacao").click( function(){
+                                                if( $(this).is(':checked') ){
+                                                         $('#ComidaImg').attr('src','/static/imagens/fisioterapia/icones/comida.svg');
+                                                    }else{
+                                                      $('#ComidaImg').attr('src','/static/imagens/fisioterapia/icones/comida_pb.svg');
+                                                    }
+                                            });
+                                            </script>
+                                <hr style="width: 100%; color: #77cbcd; height: 1px; background-color:#77cbcd;" />
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 text-center">
+                            
+                                <h5>Nível de dor</h5>
+                                <b>1</b>
+                                  {{ Formfisio.niveldor(min="1", max="10", step="1", value="5", onmouseover="", style="cursor: pointer;") }}
+                                <b>10</b>
+                                
+                                       &nbsp;
+                                       &nbsp;
+                            
+                        
+                               
+                                    <img src="/static/imagens/fisioterapia/niveldor/5.svg"  class="img-fluid" name="niveldorImg" id="niveldorImg" margin:"5px"  max-width:"100%" width="30%">
+                                    <script>
+                                         var niveldor = document.getElementById('niveldor');
+                                        function equals() {
+                                            if(niveldor.value == '1') {
+                                                $("#niveldorImg").attr('src', '/static/imagens/fisioterapia/niveldor/1.svg');
+                                            }
+                                            if(niveldor.value == '2') {
+                                                $("#niveldorImg").attr('src', '/static/imagens/fisioterapia/niveldor/2.svg');
+                                            }
+                                            if(niveldor.value == '3') {
+                                                $("#niveldorImg").attr('src', '/static/imagens/fisioterapia/niveldor/3.svg');
+                                            }
+                                            if(niveldor.value == '4') {
+                                                $("#niveldorImg").attr('src', '/static/imagens/fisioterapia/niveldor/4.svg');
+                                            }
+                                            if(niveldor.value == '5') {
+                                                $("#niveldorImg").attr('src', '/static/imagens/fisioterapia/niveldor/5.svg');
+                                            }
+                                            if(niveldor.value == '6') {
+                                                $("#niveldorImg").attr('src', '/static/imagens/fisioterapia/niveldor/6.svg');
+                                            }
+                                            if(niveldor.value == '7') {
+                                                $("#niveldorImg").attr('src', '/static/imagens/fisioterapia/niveldor/7.svg');
+                                            }
+                                            if(niveldor.value == '8') {
+                                                $("#niveldorImg").attr('src', '/static/imagens/fisioterapia/niveldor/8.svg');
+                                            }
+                                            if(niveldor.value == '9') {
+                                                $("#niveldorImg").attr('src', '/static/imagens/fisioterapia/niveldor/9.svg');
+                                            }
+                                            if(niveldor.value == '10') {
+                                                $("#niveldorImg").attr('src', '/static/imagens/fisioterapia/niveldor/10.svg');
+                                            }
+                                            else{
+                                                
+                                            }
+                                        }
+                                       /* niveldor.onkeyup = equals; */
+                                        niveldor.onchange = equals;
+                                    </script>
+                                    <hr style="width: 100%; color: #77cbcd; height: 1px; background-color:#77cbcd;" />
+                            </div>
+                        
+                        
+                        <div class="col-sm-12">    
+                           <div class="text-center"> <input type="submit" value="Enviar" class="btn btn-info btn-lg"></div>
+                        </div>
+                    </div>
+            </form>
+   
+            
+</div>
+
+{% endblock %}
+
+
+ {% block footer %}
+ {{ super() }}
+ <div class="col-12 text-right">
+ <a href="/escoredekatz"><i class="fa fa-question-circle fa-2x mx-auto" aria-hidden="true">Ajuda</i></a>
+ </div>
+ {% endblock %}
+
+

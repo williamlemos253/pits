@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %} 
+
+<style type="text/css">
+    .footer{ position: fixed; }
+</style>
+
+{% set highscore = 0 %}
+
+&nbsp;
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form action="{{ url_for('pacientesfisio2') }}" accept-charset="UTF-8" method="POST">
+        
+        <div class="input-group">
+          {{ SearchForm.csrf_token }}
+          {{  SearchForm.search(class="form-control pesquisa",  placeholder="Digite o nome do paciente que procura", autocomplete="off") }}
+          <span class="input-group-btn">
+            {{ SearchForm.submit(class="btn btn-info pesquisa") }}
+          </span> 
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+&nbsp;
+ 
+<center><h2>Paciente: {{ nome.paciente }}</h2></center>
+
+<table class="table table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>Fisioterapeuta</th>
+      <th>Banho</th>
+      <th>Vestuário</th>
+      <th>Higiene</th>
+      <th>Transferência</th>
+      <th>Continência</th>
+      <th>Alimentação</th>
+      <th>Pontuação</th>
+      <th>Nível&nbsp;de&nbsp;Dor</th>
+      <th>Data de Registro</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for fisioterapia in fisioterapias %} 
+    <tr>
+      <td>{{ fisioterapia.username_profissional }}</td>
+      <td>{% if fisioterapia.banho == True %}
+            <img src="/static/imagens/fisioterapia/icones/banho.svg"  class="mx-auto d-block" max-width:"100%" width="100%"> 
+            {% set highscore = highscore + 1 %}
+          {% else %}
+            <img src="/static/imagens/fisioterapia/icones/banho_pb.svg"  class="mx-auto d-block" max-width:"100%" width="100%"> 
+          {%- endif %}
+      
+      </td>
+      <td>{%  if fisioterapia.vestir == True %}
+            <img src="/static/imagens/fisioterapia/icones/vestir.svg"  class="mx-auto d-block" max-width:"100%" width="50%">
+            {% set highscore = highscore + 1 %}
+          {% else %}
+            <img src="/static/imagens/fisioterapia/icones/vestir_pb.svg"  class="mx-auto d-block" max-width:"100%" width="50%"> 
+          {%- endif %}
+      
+      </td>
+      <td>{%  if fisioterapia.higiene == True %}
+            <img src="/static/imagens/fisioterapia/icones/higiene.svg"  class="mx-auto d-block" max-width:"100%" width="70%"> 
+            {% set highscore = highscore + 1 %}
+          {% else %}
+            <img src="/static/imagens/fisioterapia/icones/higiene_pb.svg"  class="mx-auto d-block" max-width:"100%" width="70%"> 
+          {%- endif %}
+      
+      </td>
+      <td>{%  if fisioterapia.transferencia == True %}
+            <img src="/static/imagens/fisioterapia/icones/transfer.svg"  class="mx-auto d-block" max-width:"100%" width="45%">
+            {% set highscore = highscore + 1 %}
+          {% else %}
+            <img src="/static/imagens/fisioterapia/icones/transfer_pb.svg"  class="mx-auto d-block" max-width:"100%" width="45%"> 
+          {%- endif %}
+      
+      </td>
+      <td>{%  if fisioterapia.continencia == True %}
+            <img src="/static/imagens/fisioterapia/icones/conti.svg"  class="mx-auto d-block" max-width:"100%" width="45%">
+            {% set highscore = highscore + 1 %}
+          {% else %}
+            <img src="/static/imagens/fisioterapia/icones/conti_pb.svg"  class="mx-auto d-block" max-width:"100%" width="45%"> 
+          {%- endif %}
+      
+      </td>
+     <td>{%  if fisioterapia.alimentacao == True %}
+            <img src="/static/imagens/fisioterapia/icones/comida.svg"  class="mx-auto d-block" max-width:"100%" width="45%">
+            {% set highscore = highscore + 1 %}
+          {% else %}
+            <img src="/static/imagens/fisioterapia/icones/comida_pb.svg"  class="mx-auto d-block" max-width:"100%" width="45%"> 
+          {%- endif %}
+      
+      </td>
+      
+      <td><img src="/static/imagens/fisioterapia/rank/0{{ highscore }}_rank.svg"  class="mx-auto d-block" max-width:"100%" width="30%"></td>
+      <td><img src="/static/imagens/fisioterapia/niveldor/{{ fisioterapia.niveldor }}.svg"  class="mx-auto d-block" max-width:"100%" width="100%"></td>
+      <td>{{ fisioterapia.datareg }}</td>
+    </tr>
+    {%- endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
+
+{% block footer %}
+ {{ super() }}
+ <div class="col-12 text-right">
+ <a href="/escoredekatz"><i class="fa fa-question-circle fa-2x mx-auto" aria-hidden="true">Ajuda</i></a>
+ </div>
+ {% endblock %}

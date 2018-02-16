@@ -1,0 +1,262 @@
+/*  Css do Range Slide  */
+input[type=range] {
+    margin-bottom: 20px;
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+    
+    /*fix for FF unable to apply focus style bug */
+    border: 1px solid white;
+    
+    /*required for proper track sizing in FF*/
+    width: 200px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 170px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background: #77cbcd;
+    margin-top: -10px;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+input[type=range]::-moz-range-track {
+    width: 200px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #77cbcd;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+input[type=range]::-ms-track {
+    width: 200px;
+    height: 5px;
+    
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+    
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+
+    /*remove default tick marks*/
+    color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: #777;
+    border-radius: 10px;
+}
+input[type=range]::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 10px;
+}
+input[type=range]::-ms-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #77cbcd;
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: #888;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+}
+
+/* cor do menu */
+
+.bg-dark {
+    background-color: #77cbcd!important;
+}
+
+
+/*   Navbar e footer responsivo com logo centralizado  */
+@media screen and (max-width: 990px) {
+  .navbar-brand {
+  transform: translateX(-50%);
+  left: 50%;
+  position: inherit;
+  }
+  .footer {
+    position: absolute;
+  }
+}
+
+
+.navbar-toggler {
+  width: 100%;
+  float: none;
+  margin-right: 0;
+}
+
+
+/* Estilo iOS */
+.switch__container {
+  margin: 30px auto;
+  width: 80px;
+}
+
+.switch {
+  visibility: hidden;
+  position: absolute;
+  margin-left: -9999px;
+}
+
+.switch + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+
+.switch--shadow + label {
+  padding: 2px;
+  width: 80px;
+  height: 40px;
+  background-color: #dddddd;
+  border-radius: 60px;
+  margin-bottom: 30px;
+  top: 10px;
+}
+.switch--shadow + label:before,
+.switch--shadow + label:after {
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  bottom: 1px;
+  content: "";
+}
+.switch--shadow + label:before {
+  right: 1px;
+  background-color: #f1f1f1;
+  border-radius: 60px;
+  transition: background 0.4s;
+}
+.switch--shadow + label:after {
+  width: 42px;
+  background-color: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s;
+}
+.switch--shadow:checked + label:before {
+  background-color: #77cbcd;
+}
+.switch--shadow:checked + label:after {
+  transform: translateX(40px);
+}
+
+/* Estilo Flat toggle switch button */
+.switch--flat + label {
+  padding: 2px;
+  width: 120px;
+  height: 60px;
+  background-color: #dddddd;
+  border-radius: 60px;
+  transition: background 0.4s;
+}
+.switch--flat + label:before,
+.switch--flat + label:after {
+  display: block;
+  position: absolute;
+  content: "";
+}
+.switch--flat + label:before {
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  background-color: #fff;
+  border-radius: 60px;
+  transition: background 0.4s;
+}
+.switch--flat + label:after {
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  width: 56px;
+  background-color: #dddddd;
+  border-radius: 52px;
+  transition: margin 0.4s, background 0.4s;
+}
+.switch--flat:checked + label {
+  background-color: #8ce196;
+}
+.switch--flat:checked + label:after {
+  margin-left: 60px;
+  background-color: #8ce196;
+}
+
+/*arredonda a pesquisa */
+.pesquisa {
+    border-radius: 0px;
+}
+
+
+
+/* configura o footer */
+ .footer {
+width: 100%;
+height: 35px;
+line-height: 35px;
+position: fixed;
+bottom: 0;
+left: 0;
+z-index: 0;
+background-color: #77cbcd!important;
+}
+
+/*SEARCH FORM*/
+.search-form {
+    /*border-radius: 30px 30px 30px 30px;*/
+    /*border-radius:Top-left, Top-right, Bottom-right, Bottom-left;*/
+    background-image: url('/static/imagens/busca.png');
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+/*to cange only one form and not all give unique class name like  class="search-form" */
+ .search-btn {
+    border-radius: 0px 0px 0px 0px;
+    cursor:pointer;
+}
+
+
+/*cor dos icones */
+.coricone {
+  color: #77cbcd;
+  font-size: 205%;
+}
+
+.coricone:hover {
+  color: #18cdcf;
+}

@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}Pacientes Ativos{% endblock %}
+
+{% block body %} 
+&nbsp;
+{{ super() }}
+
+
+<div class="container">
+  <table class="table table-hover table-responsive" id="pacientes">
+    <thead>
+      <tr>
+        <th>Médico</th>
+        <th>Data/Hora</th>
+        <th>CIRS-G</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%- for resultado in resultados %} 
+      <tr>
+        <td>{{ resultado.username_profissional }}</td>
+        <td>{{ resultado.datareg|datetimeformat }}</td>
+        <td><a data-toggle="tooltip" title="Visualizar" href="/cirsgresultado2/{{ resultado.id }}"><i class="fa fa-book fa-2x coricone" aria-hidden="true"></i></a></td>
+
+      </tr>
+      {%- endfor %}
+    </tbody>
+  </table>
+</div>
+&nbsp;
+ 
+{% endblock %}
+
+{% block footer %}
+
+
+ {{ super() }}
+ 
+ <div class="col-12 text-right">
+ <a href="/cirsgajuda"><i class="fa fa-question-circle fa-2x mx-auto" aria-hidden="true">Ajuda</i></a>
+ </div>
+ 
+ {% endblock %}
+ 
+ {% block customjs %}
+
+<script>
+ $(document).ready( function() {
+        $('#pacientes').dynatable();
+ });
+</script>
+
+
+
+
+ {% endblock %}
+ 
+ 
+

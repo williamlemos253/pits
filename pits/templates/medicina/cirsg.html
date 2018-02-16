@@ -1,0 +1,803 @@
+{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}CIRS-G{% endblock %}
+
+{{ super() }}
+{% block body %} 
+
+
+
+&nbsp;
+  <div id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="row">
+      <div class="col-12">
+        <form method="post">
+             {{ CirsgForm.csrf_token}}
+             {{ CirsgForm.hidden_tag() }}
+             {{ wtf.form_errors(CirsgForm, hiddens="only") }}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{ wtf.form_field(CirsgForm.paciente, readonly="True", value=paciente) }}
+                        </div>                   
+                        <div class="col-sm-6">
+                            {{ wtf.form_field(CirsgForm.username_profissional, readonly="True", value=current_user.first_name+" "+current_user.last_name) }}
+                        </div>
+                    </div>
+      </div>
+      <div class="col-12 col-md-6">
+              <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" class="collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-target="#collapseOne" style="cursor: pointer;">
+                  <h5 class="mb-0">
+                      #1 Coração 
+                  </h5>
+                </div>
+                <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                     
+                            <center><h5>Classifique os seguintes sistemas de órgãos numa escala de <b>0 - 4</b></h5></center>
+                            <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo1" aria-expanded="false" aria-controls="collapseExample">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo1">
+                            <p><span style="color: red">&nbsp;0</span> Nenhum problema</p>
+                    
+                            <p><span style="color: red">&nbsp;1</span> Infarto do miocárdio remoto (no últimos 5 anos atrás) angina ocasional tratada com medicação SOS.</p>
+                            
+                            <p><span style="color: red">&nbsp;2</span> Insuficiência cardíaca congestiva compensada com medicação &frasl; medicação diária com antianginosos &frasl; hipertrofia ventricular esquerda &frasl; fibrilação auricular &frasl; bloqueio do feixe de His &frasl;medicação diária com antiarrítmicos..</p>
+                            
+                            <p><span style="color: red">&nbsp;3</span> Infarto do miocárdio ocorrido nos 5 anos anteriores &frasl; resultado anómalo na prova de esforço &frasl; estado após angioplastia coronária percutânea ou cirurgia de bypass de artéria coronária..</p>
+                            
+                            <p><span style="color: red">&nbsp;4</span> Restrição marcada da atividade, secundária a situação cardíaca (ou seja, angina instável ou insuficiência cardíaca congestiva não controlada).</p></div>
+  
+                                    <div>  
+                                        <div class="text-center" >
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="coracao-0" class="btn btn-info btn-lg active" class="collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-target="#collapseOne">
+                                                    <input type="radio" name="coracao" id="coracao-0" value="0" autocomplete="off" checked>0
+                                                  </label>
+                                                  <label for="coracao-1" class="btn btn-info btn-lg" class="collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-target="#collapseOne">
+                                                    <input type="radio" name="coracao" id="coracao-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="coracao-2" class="btn btn-info btn-lg" class="collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-target="#collapseOne">
+                                                    <input type="radio" name="coracao" id="coracao-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="coracao-3" class="btn btn-info btn-lg" class="collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-target="#collapseOne">
+                                                    <input type="radio" name="coracao" id="coracao-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="coracao-4" class="btn btn-info btn-lg" class="collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-target="#collapseOne">
+                                                    <input type="radio" name="coracao" id="coracao-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                        </div>
+                                    </div>  
+                                         &nbsp;
+                                     <div style="display:none;">
+                                            {{ CirsgForm.coracao }}
+                                      </div>   
+                                       
+                                          
+                  </div>
+                </div>
+              </div>
+              &nbsp;
+              <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" id="headingTwo" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="cursor: pointer;">
+                  <h5 class="mb-0">
+                     #2 Vascular 
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                   <center><h5>Classifique os seguintes sistemas de órgãos numa escala de <b>0 - 4</b></h5></center>
+                        <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo2" aria-expanded="false" aria-controls="collapseExample">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo2">
+            
+                            <p><span style="color: red">&nbsp;0</span> Nenhum problema</p>
+                            
+                            <p><span style="color: red">&nbsp;1</span> Hipertensão compensada com restrição de sal e perda de peso &frasl; colesterol sérico maior do que 200 mg&frasl;dl.</p>
+                            
+                            <p><span style="color: red">&nbsp;2</span> Medicação diária com anti-hipertensores &frasl; um sintoma de doença aterosclerótica (angina, claudicação, sopro, amaurose fugaz, ausência de pulso pedioso) &frasl; aneurisma aórtico menor do que 4 cm.</p>
+                            
+                            <p><span style="color: red">&nbsp;3</span> Dois ou mais sintomas de aterosclerose (ver atrás).</p>
+                            
+                            <p><span style="color: red">&nbsp;4</span> Cirurgia prévia para problema vascular &frasl; aneurisma aórtico maior do que 4 cm.</p></div>
+                                      
+                                        <div>
+                                            <div class="text-center">
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="vascular-0" class="btn btn-info btn-lg active" id="headingTwo" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    <input type="radio" name="vascular" id="vascular-0" value="0" autocomplete="off" checked>0
+                                                  </label>
+                                                  <label for="vascular-1" class="btn btn-info btn-lg" id="headingTwo" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    <input type="radio" name="vascular" id="vascular-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="vascular-2" class="btn btn-info btn-lg" id="headingTwo" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    <input type="radio" name="vascular" id="vascular-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="vascular-3" class="btn btn-info btn-lg" id="headingTwo" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    <input type="radio" name="vascular" id="vascular-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="vascular-4" class="btn btn-info btn-lg" id="headingTwo" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    <input type="radio" name="vascular" id="vascular-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        &nbsp;
+                                         <div style="display:none;">
+                                                {{ CirsgForm.vascular }}
+                                        </div>
+                  </div>
+                </div>
+              </div>
+               &nbsp;
+              <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" id="headingThree" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="cursor: pointer;">
+                  <h5 class="mb-0">
+                     #3 Hematopoiético (sangue, células e vasos sanguíneos, medula, baço, sistema linfático)
+                  </h5>
+                </div>
+                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                    <center><h5>Classifique os seguintes sistemas de órgãos numa escala de <b>0 - 4</b></h5></center>
+                         <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo3" aria-expanded="false" aria-controls="collapseExample">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo3">
+            
+                        <p><span style="color: red">&nbsp;0</span> Nenhum problema</p>
+                        
+                        <p><span style="color: red">&nbsp;1</span> Hemoglobina: mulheres maior do que 10 e menor do que 12; homens maior do que 10 e menor do que 12 / anemia resultante de doença crônica.</p>
+                        
+                        <p><span style="color: red">&nbsp;2</span> Hemoglobina: mulheres maior do que 8 e menor do que 10; homens maior do que 12 menor do que 14 / anemia secundária a carência de ferro, de vitamina B12 ou de folato ou insuficiência renal crônica / contagem leucocitária total maior do que 2000 mas menor do que 4000.</p>
+                        
+                        <p><span style="color: red">&nbsp;3</span> Hemoglobina: mulheres menor do que 8 ; homens menor do que 10 / contagem leucocitária total menor do que 2000 </p>
+                        
+                        <p><span style="color: red">&nbsp;4</span> Qualquer leucemia; qualquer linfoma.</p></div>
+                                      
+                                        <div>
+                                            <div class="text-center">
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="hematopoietico-0" class="btn btn-info btn-lg active" id="headingThree" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    <input type="radio" name="hematopoietico" id="hematopoietico-0" value="0" autocomplete="off" checked>0
+                                                  </label>
+                                                  <label for="hematopoietico-1" class="btn btn-info btn-lg" id="headingThree" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    <input type="radio" name="hematopoietico" id="hematopoietico-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="hematopoietico-2" class="btn btn-info btn-lg" id="headingThree" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    <input type="radio" name="hematopoietico" id="hematopoietico-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="hematopoietico-3" class="btn btn-info btn-lg" id="headingThree" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    <input type="radio" name="hematopoietico" id="hematopoietico-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="hematopoietico-4" class="btn btn-info btn-lg" id="headingThree" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    <input type="radio" name="hematopoietico" id="hematopoietico-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        &nbsp;
+                                          <div style="display:none;">
+                                            {{ CirsgForm.hematopoietico }}
+                                        </div>
+                  </div>
+                </div>
+              </div>
+             &nbsp;
+             <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" id="headingThree" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="cursor: pointer;">
+                  <h5 class="mb-0">
+                   #4 Respiratório (pulmões, brônquios, traqueia abaixo da laringe)
+                  </h5>
+                </div>
+                <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                    <center><h5>Classifique os seguintes sistemas de órgãos numa escala de <b>0 - 4</b></b></h5></center>
+                        <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo4" aria-expanded="false" aria-controls="collapseExample">
+                                      Como classificar?
+                                    </button></div>
+                                    &nbsp;
+                        <div class="collapse" id="resumo4">
+            
+                    <p><span style="color: red">&nbsp;0</span> Nenhum problema</p>
+                    
+                    <p><span style="color: red">&nbsp;1</span> Episódios recorrentes de bronquite aguda / presença de asma controlada com inaladores SOS/ fuma &gt; 10 mas &lt; 20 unidades maço por ano.</p>
+                    
+                    <p><span style="color: red">&nbsp;2</span> Evidência radiológica de DPOC / exigência diária de teofilina ou inaladores / tratamento contra a pneumonia 2 ou mais vezes nos últimos 5 anos / fumador 20-40 unidades maço ano.</p>
+                    
+                    <p><span style="color: red">&nbsp;3</span> Deambulação limitada secundária a capacidade respiratória limitada / necessidade de corticosteróides orais para tratamento da doença pulmonar / fumador &gt; 40 unidades maço ano.</p>
+                    
+                    <p><span style="color: red">&nbsp;4</span> Necessidade de oxigenoterapia / pelo menos um episódio de insuficiência respiratória a exigir ventilação assistida / qualquer cancro do pulmão.</p></div>
+                                       
+                                        <div>
+                                            <div class="text-center">
+                                              <div class="btn-group" data-toggle="buttons" id="headingThree" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                  <label for="respiratorio-0" class="btn btn-info btn-lg active">
+                                                    <input type="radio" name="respiratorio" id="respiratorio-0" value="0" autocomplete="off" checked>0
+                                                  </label>
+                                                  <label for="respiratorio-1" class="btn btn-info btn-lg" id="headingThree" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                    <input type="radio" name="respiratorio" id="respiratorio-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="respiratorio-2" class="btn btn-info btn-lg" id="headingThree" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                    <input type="radio" name="respiratorio" id="respiratorio-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="respiratorio-3" class="btn btn-info btn-lg" id="headingThree" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                    <input type="radio" name="respiratorio" id="respiratorio-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="respiratorio-4" class="btn btn-info btn-lg" id="headingThree" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                    <input type="radio" name="respiratorio" id="respiratorio-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        &nbsp;
+                                        <div style="display:none;">
+                                            {{ CirsgForm.respiratorio }}
+                                        </div>
+                  </div>
+                </div>
+              </div>
+             &nbsp;
+             <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" id="headingFive" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive" style="cursor: pointer;">
+                  <h5 class="mb-0">
+            
+                   #5 Olhos, ouvidos, nariz e garganta e laringe
+            
+                  </h5>
+                </div>
+                <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                    <center><h5>Classifique os seguintes sistemas de órgãos numa escala de <b>0 - 4</b></h5></center>
+                     <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo5" aria-expanded="false" aria-controls="collapseExample">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo5">
+            
+                    <p><span style="color: red">&nbsp;0</span> Nenhum problema</p>
+                    
+                    <p><span style="color: red">&nbsp;1</span> Visão corrigida 20/40/ sinusite crônica / ligeira perda de audição.</p>
+                    
+                    <p><span style="color: red">&nbsp;2</span> Visão corrigida 20/60 ou leitura da imprensa feita com dificuldade / aparelho auditivo / queixas sino-nasais crônicas a exigir medicação / necessita de medicação para vertigens.</p>
+                    
+                    <p><span style="color: red">&nbsp;3</span> Cegueira parcial (precisa de acompanhante para sair de casa) / incapacidade de ler a imprensa / dificuldades auditivas numa conversação audição apesar de aparelho auditivo.</p>
+                    
+                    <p><span style="color: red">&nbsp;4</span> Cegueira funcional / surdez funcional / laringectomia / necessidade de intervenção cirúrgica para corrigir as vertigens.</p></div>
+                                       
+                                        <div>
+                                            <div class="text-center">
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="otorrino-0" class="btn btn-info btn-lg active" id="headingFive" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                    <input type="radio" name="otorrino" id="otorrino-0" value="0" autocomplete="off" checked>0
+                                                  </label>
+                                                  <label for="otorrino-1" class="btn btn-info btn-lg" id="headingFive" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                    <input type="radio" name="otorrino" id="otorrino-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="otorrino-2" class="btn btn-info btn-lg" id="headingFive" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                    <input type="radio" name="otorrino" id="otorrino-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="otorrino-3" class="btn btn-info btn-lg" id="headingFive" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                    <input type="radio" name="otorrino" id="otorrino-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="otorrino-4" class="btn btn-info btn-lg" id="headingFive" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                    <input type="radio" name="otorrino" id="otorrino-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                            </div>
+                                        </div>
+                                       &nbsp;
+                                        <div style="display:none;">
+                                            {{ CirsgForm.otorrino }}
+                                        </div>
+                  </div>
+                </div>
+              </div>
+             &nbsp;
+             <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" id="headingSix" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix" style="cursor: pointer;">
+                  <h5 class="mb-0">
+                     #6 Trato gastrointestinal superior (esôfago, estômago, duodeno)
+                  </h5>
+                </div>
+                <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                    
+                    <center><h5>Classifique os seguintes sistemas de órgãos numa escala de <b>0 - 4</b></h5></center>
+                      <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo6" aria-expanded="false" aria-controls="collapseExample">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo6">
+                    <p><span style="color: red">&nbsp;0</span> Nenhum problema</p>
+                    <p><span style="color: red">&nbsp;1</span> Hérnia do hiato / queixas de azia tratadas com medicação SOS.</p>
+                    <p><span style="color: red">&nbsp;2</span> Necessidade diária de bloqueador H2 ou de antiácido / úlcera gástrica ou duodenal documentada nos últimos 5 anos.</p>
+                    <p><span style="color: red">&nbsp;3</span> Úlcera ativa / resultado positivo na pesquisa de sangue oculto nas fezes / qualquer distúrbio da deglutição ou disfagia.</p>
+                    <p><span style="color: red">&nbsp;4</span> Cancro gástrico / história clínica de úlcera perfurada / melena ou hematoquezia com origem no trato gastrointestinal superior.</p></div>
+                                         
+                                        <div>
+                                            <div class="text-center">
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="gastrointestinalsup-0" class="btn btn-info btn-lg active" id="headingSix" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                                    <input type="radio" name="gastrointestinalsup" id="gastrointestinalsup-0" value="0" autocomplete="off" checked>0
+                                                  </label>
+                                                  <label for="gastrointestinalsup-1" class="btn btn-info btn-lg" id="headingSix" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                                    <input type="radio" name="gastrointestinalsup" id="gastrointestinalsup-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="gastrointestinalsup-2" class="btn btn-info btn-lg" id="headingSix" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                                    <input type="radio" name="gastrointestinalsup" id="gastrointestinalsup-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="gastrointestinalsup-3" class="btn btn-info btn-lg" id="headingSix" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                                    <input type="radio" name="gastrointestinalsup" id="gastrointestinalsup-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="gastrointestinalsup-4" class="btn btn-info btn-lg" id="headingSix" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                                    <input type="radio" name="gastrointestinalsup" id="gastrointestinalsup-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        &nbsp;
+                                        <div style="display:none;">
+                                            {{ CirsgForm.gastrointestinalsup }}
+                                        </div> 
+                  </div>
+                </div>
+              </div>
+             &nbsp;
+             <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" id="headingSeven" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven" style="cursor: pointer;">
+                  <h5 class="mb-0">
+                     #7 Trato gastrointestinal inferior (intestinos, hérnias) 
+                  </h5>
+                </div>
+                <div id="collapseSeven" class="collapse" role="tabpanel" aria-labelledby="headingSeven">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                    
+                    <center><h5> Classifique os seguintes sistemas de órgãos numa escala de <b>0 - 4</b></h5></center>
+                     <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo7" aria-expanded="false" aria-controls="collapseExample">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo7">
+                    <p><span style="color: red">&nbsp;0</span> Nenhum problema</p>
+                    <p><span style="color: red">&nbsp;1</span> Obstipação controlada com medicação em SOS / hemorróidas ativas / estado após cirurgia de reparação de hérnia.</p>
+                    <p><span style="color: red">&nbsp;2</span> Necessidade diária de laxantes expansores do volume fecal ou emolientes/ diverticulite / hérnia não reparada.</p>
+                    <p><span style="color: red">&nbsp;3</span> Impactação intestinal no ano anterior / uso diário de laxantes estimulantes ou enemas.</p>
+                    <p><span style="color: red">&nbsp;4</span> Hematoquezias com origem no trato gastrointestinal inferior, atualmente impactado, crise de diverticulite / estado após uma obstrução intestinal /carcinoma intestinal.</p></div>
+                                       
+                                        <div>
+                                            <div class="text-center">
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="gastrointestinalinf-0" class="btn btn-info btn-lg active" id="headingSeven" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                                    <input type="radio" name="gastrointestinalinf" id="gastrointestinalinf-0" value="0" autocomplete="off" checked>0
+                                                  </label>
+                                                  <label for="gastrointestinalinf-1" class="btn btn-info btn-lg" id="headingSeven" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                                    <input type="radio" name="gastrointestinalinf" id="gastrointestinalinf-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="gastrointestinalinf-2" class="btn btn-info btn-lg" id="headingSeven" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                                    <input type="radio" name="gastrointestinalinf" id="gastrointestinalinf-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="gastrointestinalinf-3" class="btn btn-info btn-lg" id="headingSeven" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                                    <input type="radio" name="gastrointestinalinf" id="gastrointestinalinf-3" value="3" autocomplete="off">3
+                                                  </label> 
+                                                  <label for="gastrointestinalinf-4" class="btn btn-info btn-lg" id="headingSeven" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                                    <input type="radio" name="gastrointestinalinf" id="gastrointestinalinf-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        &nbsp;
+                                         <div style="display:none;">
+                                            {{ CirsgForm.gastrointestinalinf }}
+                                        </div>
+            
+                  </div>
+                </div>
+              </div>
+             &nbsp;
+      </div>
+      <div class="col-12 col-md-6">
+                   <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" id="headingEight" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight" style="cursor: pointer;">
+                  <h5 class="mb-0">
+            
+                     #8 Fígado (incluindo as árvores biliar e pancreática) 
+            
+                  </h5>
+                </div>
+                <div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingEight">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                                    
+                            <center><h5>Classifique os seguintes sistemas de órgãos numa escala de <b>0 - 4</b></h5></center>
+                             <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo8" aria-expanded="false" aria-controls="collapseExample">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo8">
+                            <p><span style="color: red">&nbsp;0</span> Nenhum problema</p>
+                            <p><span style="color: red">&nbsp;1</span> História de hepatite até 5 anos atrás / colecistectomia.</p>
+                            <p><span style="color: red">&nbsp;2</span> Valores moderadamente elevados no teste da função hepática (até 150% do normal / hepatite nos 5 anos anteriores / colelitíase /consumo diário ou de grandes quantidades de álcool nos últimos 5 anos.</p>
+                            <p><span style="color: red">&nbsp;3</span> Bilirrubina aumentada (total maior do que 2 mg/dl) / elevação marcada dos valores nos testes da função hepática (maior do que 15% do normal) / necessidade de suplementos de enzimas pancreáticas para auxiliar a digestão.</p>
+                            <p><span style="color: red">&nbsp;4</span> Obstrução biliar /qualquer carcinoma da árvore biliar / colecistite / pancreatite / hepatite ativa. Uma vez que é difícil avaliar o sistema hepatobiliar através de exame físico, deve recorrer-se aos resultados das análises laboratoriais.</p></div>
+                                        
+                                        <div>
+                                            <div class="text-center">
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="figado-0" class="btn btn-info btn-lg active" id="headingEight" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                                    <input type="radio" name="figado" id="figado-0" value="0" autocomplete="off" checked>0
+                                                  </label>
+                                                  <label for="figado-1" class="btn btn-info btn-lg" id="headingEight" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                                    <input type="radio" name="figado" id="figado-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="figado-2" class="btn btn-info btn-lg" id="headingEight" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                                    <input type="radio" name="figado" id="figado-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="figado-3" class="btn btn-info btn-lg" id="headingEight" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                                    <input type="radio" name="figado" id="figado-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="figado-4" class="btn btn-info btn-lg" id="headingEight" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                                    <input type="radio" name="figado" id="figado-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        &nbsp;
+                                        <div style="display:none;">
+                                            {{ CirsgForm.figado }}
+                                        </div>
+            
+                  </div>
+                </div>
+              </div>
+             &nbsp;
+             <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" id="headingNine" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine" style="cursor: pointer;">
+                  <h5 class="mb-0">
+            
+                     #9 Renal (apenas rins) 
+            
+                  </h5>
+                </div>
+                <div id="collapseNine" class="collapse" role="tabpanel" aria-labelledby="headingNine">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                    
+                        <center><h5>Classifique os seguintes sistemas de órgãos numa escala de <b>0 - 4</b></h5></center>
+                         <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo9" aria-expanded="false" aria-controls="collapseExample">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo9">
+                        <p><span style="color: red">&nbsp;0</span> Nenhum problema</p>
+                        <p><span style="color: red">&nbsp;1</span> Após passagem de um cálculo renal nos últimos 10 anos ou cálculo renal assintomático / pielonefrite nos últimos 5 anos</p> 
+                        <p><span style="color: red">&nbsp;2</span> Creatinina sérica maior do que 1,5 mg/dL mas menor do que 3,0 mg/dL sem diuréticos nem outra medicação anti-hipertensora.</p>
+                        <p><span style="color: red">&nbsp;3</span> Creatinina sérica maior do que 3,0 mg/dL ou creatinina sérica maior do que 1,5 mg/dL associada a terapêutica com diuréticos, anti-hipertensores ou bicarbonato /pielonefrite presente.</p>
+                        <p><span style="color: red">&nbsp;4</span> Necessidade de diálise / carcinoma renal.</p></div>
+                                        
+                                        <div>
+                                            <div class="text-center">
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="renal-0" class="btn btn-info btn-lg active" id="headingNine" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                                    <input type="radio" name="renal" id="renal-0" value="0" autocomplete="off" checked>0
+                                                  </label>
+                                                  <label for="renal-1" class="btn btn-info btn-lg" id="headingNine" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                                    <input type="radio" name="renal" id="renal-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="renal-2" class="btn btn-info btn-lg" id="headingNine" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                                    <input type="radio" name="renal" id="renal-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="renal-3" class="btn btn-info btn-lg" id="headingNine" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                                    <input type="radio" name="renal" id="renal-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="renal-4" class="btn btn-info btn-lg" id="headingNine" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                                    <input type="radio" name="renal" id="renal-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        &nbsp;
+                                        <div style="display:none;">
+                                            {{ CirsgForm.renal }}
+                                        </div>
+                  </div>
+                </div>
+              </div>
+             &nbsp;
+             <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" id="headingTen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen" style="cursor: pointer;">
+                  <h5 class="mb-0">
+            
+                     #10 Genitourinário (ureteres, bexiga, uretra, próstata, genitais, útero, ovários)
+                  </h5>
+                </div>
+                <div id="collapseTen" class="collapse" role="tabpanel" aria-labelledby="headingTen">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                   
+                    <center><h5>Classifique os seguintes sistemas de órgãos numa escala de <b>0 - 4</b></h5></center>
+                     <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo10" aria-expanded="false" aria-controls="collapseExample">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo10">
+                    <p><span style="color: red">&nbsp;0</span> Nenhum problema</p>
+                    <p><span style="color: red">&nbsp;1</span> Incontinência de esforço/histerectomia /hipertrofia benigna da próstata, sem sintomas urinários.</p>
+                    <p><span style="color: red">&nbsp;2</span> Resultado anômalo no esfregaço do colo do útero (teste de Papanicolau)/infeções frequentes no trato urinário (três ou mais no ano anterior) / incontinência urinária (não relacionada com o esforço) no sexo feminino / hipertrofia benigna da próstata com hesitação ou frequência / infeção ativa do trato urinário / qualquer procedimento de derivação urinária / estado após ressecção transuretral da próstata (RTUP).</p>
+                    <p><span style="color: red">&nbsp;3</span> Cancro in situ da próstata (ou seja, descoberto acidentalmente durante a resseção transuretral da próstata) hemorragia vaginal / carcinoma in situ do colo do útero / hematúria / estado após urosepsis no ano anterior.</p>
+                    <p><span style="color: red">&nbsp;4</span> Retenção urinária aguda / qualquer carcinoma genitourinário excepto os anteriores.</p></div>
+                                        
+                                        <div>
+                                            <div class="text-center">
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="genitourinario-0" class="btn btn-info btn-lg active" id="headingTen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                                                    <input type="radio" name="genitourinario" id="genitourinario-0" value="0" autocomplete="off" checked>0
+                                                  </label>
+                                                  <label for="genitourinario-1" class="btn btn-info btn-lg" id="headingTen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                                                    <input type="radio" name="genitourinario" id="genitourinario-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="genitourinario-2" class="btn btn-info btn-lg" id="headingTen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                                                    <input type="radio" name="genitourinario" id="genitourinario-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="genitourinario-3" class="btn btn-info btn-lg" id="headingTen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                                                    <input type="radio" name="genitourinario" id="genitourinario-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="genitourinario-4" class="btn btn-info btn-lg" id="headingTen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                                                    <input type="radio" name="genitourinario" id="genitourinario-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        &nbsp;
+                                        <div style="display:none;">
+                                            {{ CirsgForm.genitourinario }}
+                                        </div>
+                                       
+            
+                  </div>
+                </div>
+              </div>
+             &nbsp;
+             <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" id="headingEleven" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven" style="cursor: pointer;">
+                  <h5 class="mb-0">
+            
+                     #11 Musculosquelético / tegumentos (músculos, osso e pele)
+            
+                  </h5>
+                </div>
+                <div id="collapseEleven" class="collapse" role="tabpanel" aria-labelledby="headingEleven">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                    
+                    <center><h5>Classifique os seguintes sistemas de órgãos numa escala de <b>0 - 4</b></h5></center>
+                     <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo11" aria-expanded="false" aria-controls="collapseExample">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo11">
+                    <p><span style="color: red">&nbsp;0</span> Nenhum problema</p>
+                    <p><span style="color: red">&nbsp;1</span> Uso de medicação SOS para a artrite ou atividades da vida diária com limitação moderada resultante de patologia articular / cancro cutâneo não-melanoma excisado / infeções da pele a exigir antibioterapia ocorridas até um ano antes.</p> 
+                    <p><span style="color: red">&nbsp;2</span> Medicação diária para a artrite ou uso de dispositivos de assistência na mobilidade ou limitação moderada nas atividades da vida diária / medicação diária para afeções cutâneas crónicas / melanoma sem metástases.</p>
+                    <p><span style="color: red">&nbsp;3</span> Compromisso severo das atividades da vida diária, secundário a artrite / exigência de corticosteróides para doença artrítica / fraturas vertebrais de compressão resultantes de osteoporose.</p>
+                    <p><span style="color: red">&nbsp;4</span> Confinado a cadeira de rodas / deformidade articular severa ou funcionalidade severamente comprometida / osteomielite / qualquer carcinoma ósseo ou muscular / melanoma metastizado.</p></div>
+                                        
+                                        <div>
+                                            <div class="text-center">
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="musculosqueletico-0" class="btn btn-info btn-lg active" id="headingEleven" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                                                    <input type="radio" name="musculosqueletico" id="musculosqueletico-0" value="0" autocomplete="off" checked>0
+                                                  </label>
+                                                  <label for="musculosqueletico-1" class="btn btn-info btn-lg" id="headingEleven" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                                                    <input type="radio" name="musculosqueletico" id="musculosqueletico-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="musculosqueletico-2" class="btn btn-info btn-lg" id="headingEleven" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                                                    <input type="radio" name="musculosqueletico" id="musculosqueletico-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="musculosqueletico-3" class="btn btn-info btn-lg" id="headingEleven" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                                                    <input type="radio" name="musculosqueletico" id="musculosqueletico-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="musculosqueletico-4" class="btn btn-info btn-lg" id="headingEleven" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                                                    <input type="radio" name="musculosqueletico" id="musculosqueletico-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                            </div>
+                                        </div> 
+                                        &nbsp;
+                                        <div style="display:none;">
+                                            {{ CirsgForm.musculosqueletico }}
+                                        </div>
+                  </div>
+                </div>
+              </div>
+             &nbsp;
+             <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" id="headingTwelve" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve" style="cursor: pointer;">
+                  <h5 class="mb-0">
+            
+                     #12 Neurológico (cérebro, medula espinal e nervos)
+            
+                  </h5>
+                </div>
+                <div id="collapseTwelve" class="collapse" role="tabpanel" aria-labelledby="headingTwelve">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                    
+                        <center><h5>Classifique os seguintes sistemas de órgãos numa escala de <b>0 - 4</b></h5></center>
+                         <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo12" aria-expanded="false" aria-controls="collapseExample">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo12">
+                        <p><span style="color: red">&nbsp;0</span> Nenhum problema</p>
+                        <p><span style="color: red">&nbsp;1</span> Cefaleias frequentes a exigir medicação SOS mas sem interferência nas atividades diárias / história clínica de AIT - acidente isquémico transitório (pelo menos um episódio).</p>
+                        <p><span style="color: red">&nbsp;2</span> Necessita de medicação diária para cefaleias crónicas ou cefaleias que interferem regularmente com as atividades diárias / estado após AVC (acidente vascular cerebral) sem sequelas significativas / doença neurodegenerativa (doença de Parkinson, esclerose múltipla, esclerose lateral amiotrófica, etc.) – severidade ligeira</p>
+                        <p><span style="color: red">&nbsp;3</span> Estado após AVC com sequelas ligeiras / qualquer procedimento neurocirúrgico do SNC / doença neurodegenerativa – severidade moderada.</p>
+                        <p><span style="color: red">&nbsp;4</span> Estado após AVC com hemiparesia funcional residual ou afasia / doença neurodegenerativa – severa.</p></div>
+                                        
+                                        <div>  
+                                            <div class="text-center">
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="neurologico-0" class="btn btn-info btn-lg active" id="headingTwelve" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                                                    <input type="radio" name="neurologico" id="neurologico-0" value="0" autocomplete="off" checked>0
+                                                  </label>
+                                                  <label for="neurologico-1" class="btn btn-info btn-lg" id="headingTwelve" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                                                    <input type="radio" name="neurologico" id="neurologico-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="neurologico-2" class="btn btn-info btn-lg" id="headingTwelve" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                                                    <input type="radio" name="neurologico" id="neurologico-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="neurologico-3" class="btn btn-info btn-lg" id="headingTwelve" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                                                    <input type="radio" name="neurologico" id="neurologico-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="neurologico-4" class="btn btn-info btn-lg" id="headingTwelve" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                                                    <input type="radio" name="neurologico" id="neurologico-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        &nbsp;
+                                        <div style="display:none;">
+                                            {{ CirsgForm.neurologico }}
+                                        </div>
+                  </div>
+                </div>
+              </div>
+             &nbsp;
+             <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" id="headingThirteen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen" style="cursor: pointer;">
+                  <h5 class="mb-0">
+            
+                     #13 Endócrino/metabólico e mama (inclui infeções difusas e envenenamentos) 
+            
+                  </h5>
+                </div>
+                <div id="collapseThirteen" class="collapse" role="tabpanel" aria-labelledby="headingThirteen">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                    
+                        <center><h5>Classifique os seguintes sistemas de órgãos numa escala de <b>0 - 4</b></h5></center>
+                         <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo13" aria-expanded="false" aria-controls="collapseExample">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo13">
+                        <p><span style="color: red">&nbsp;0</span> Nenhum problema</p>
+                        <p><span style="color: red">&nbsp;1</span> Diabetes mellitus compensada com dieta / obesidade: IMC maior do que 30* / necessidade de terapêutica de substituição da hormona tiroideia.</p>
+                        <p><span style="color: red">&nbsp;2</span> Diabetes mellitus a exigir insulina ou hipoglicemiantes orais / doença fibroquística da mama.</p>
+                        <p><span style="color: red">&nbsp;3</span> Qualquer alteração eletrolítica a exigir tratamento hospitalar / obesidade mórbida: IMC maior do que 45*.</p>
+                        <p><span style="color: red">&nbsp;4</span> Diabetes mellitus avançada ou mal controlada ou coma diabético no último ano / exigência de terapêutica de substituição hormonal suprarrenal / carcinoma das suprarrenais, da tiroide ou da mama.</p></div>
+                                        
+                                        <div>
+                                            <div class="text-center">
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="endocrino-0" class="btn btn-info btn-lg active" id="headingThirteen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                                                    <input type="radio" name="endocrino" id="endocrino-0" value="0" autocomplete="off" checked>0
+                                                  </label>
+                                                  <label for="endocrino-1" class="btn btn-info btn-lg" id="headingThirteen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                                                    <input type="radio" name="endocrino" id="endocrino-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="endocrino-2" class="btn btn-info btn-lg" id="headingThirteen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                                                    <input type="radio" name="endocrino" id="endocrino-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="endocrino-3" class="btn btn-info btn-lg" id="headingThirteen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                                                    <input type="radio" name="endocrino" id="endocrino-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="endocrino-4" class="btn btn-info btn-lg" id="headingThirteen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                                                    <input type="radio" name="endocrino" id="endocrino-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        &nbsp;
+                                        <div style="display:none;">
+                                            {{ CirsgForm.endocrino }}
+                                        </div>
+                  </div>
+                </div>
+              </div>
+             &nbsp;
+             <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" id="headingFourteen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen" style="cursor: pointer;">
+                  <h5 class="mb-0">
+            
+                     #14 Doença psiquiátrica 
+            
+                  </h5>
+                </div>
+                <div id="collapseFourteen" class="collapse" role="tabpanel" aria-labelledby="headingFourteen">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                    
+                            <center><h5>Classifique os seguintes sistemas de órgãos numa escala de <b>0 - 4</b></h5></center>
+                             <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo14" aria-expanded="false" aria-controls="collapseExample">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo14">
+                            <p><span style="color: red">&nbsp;0</span> Nenhum problema psiquiátrico no presente ou no passado</p>
+                            <p><span style="color: red">&nbsp;1</span> Perturbação menor do foro psiquiátrico, presente ou no passado. Especificamente: história de tratamento ambulatório da saúde mental na sequência de uma crise / tratamento ambulatório para a depressão há mais de 10 anos / uso no presente de tranquilizantes ligeiros para a ansiedade ocasional (uso ocasional) / demência precoce ligeira (teste Mini Mental State ou MMS maior do que 25 e menor do que 28).</p>
+                            <p><span style="color: red">&nbsp;2</span> História de depressão major (de acordo com os critérios de “Diagnostic and Statistical Manual of Mental Disorders, third ed. revised” ou DSM III-R) nos últimos 10 anos (tratada ou não tratada) / demência ligeira (MMS 20-25) / qualquer hospitalização psiquiátrica anterior / qualquer episódio psicótico / história de abuso de droga há mais de 10 anos.</p>
+                            <p><span style="color: red">&nbsp;3</span> Atualmente preenche os critérios DSM III-R para depressão major ou dois ou mais episódios de depressão major nos últimos 10 anos / demência moderada (MMS 15-20) / atual uso diário de ansiolíticos / atualmente preenche os critérios DSM III-R para o abuso ou dependência de droga / necessidade de medicação diária com antipsicóticos.</p>
+                            <p><span style="color: red">&nbsp;4</span> Doença mental presente a exigir internação psiquiátrica em hospital ou instituição ou tratamento ambulatório intenso, por exemplo doentes com depressão severa ou com intenção suicida, psicose aguda ou descompensação psicótica, agitação severa devido a demência, abuso severo de droga, etc. / demência severa (MMS menor do que 15).</p></div>
+                                        
+                                        <div>
+                                            <div class="text-center">
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="psiquiatrica-0" class="btn btn-info btn-lg active" id="headingFourteen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+                                                    <input type="radio" name="psiquiatrica" id="psiquiatrica-0" value="0" autocomplete="off" checked>0
+                                                  </label>
+                                                  <label for="psiquiatrica-1" class="btn btn-info btn-lg" id="headingFourteen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+                                                    <input type="radio" name="psiquiatrica" id="psiquiatrica-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="psiquiatrica-2" class="btn btn-info btn-lg" id="headingFourteen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+                                                    <input type="radio" name="psiquiatrica" id="psiquiatrica-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="psiquiatrica-3" class="btn btn-info btn-lg" id="headingFourteen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+                                                    <input type="radio" name="psiquiatrica" id="psiquiatrica-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="psiquiatrica-4" class="btn btn-info btn-lg" id="headingFourteen" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+                                                    <input type="radio" name="psiquiatrica" id="psiquiatrica-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                            </div>
+                                        </div> 
+                                       &nbsp;
+                                       <div style="display:none;">
+                                            {{ CirsgForm.psiquiatrica }}
+                                        </div>
+                  </div>
+                </div>
+              </div>
+              
+                               &nbsp;
+                        
+           
+    </div>
+  
+           <div class="col-12"><div class="text-center">{{ CirsgForm.salvar}}</div></div>
+           </form>
+   </div>
+</div>
+ &nbsp;
+{% endblock %}
+
+{% block footer %}
+ {{ super() }}
+ <div class="col-12 text-right">
+ <a href="/cirsgajuda"><i class="fa fa-question-circle fa-2x mx-auto" aria-hidden="true">Ajuda</i></a>
+ </div>
+{% endblock %}

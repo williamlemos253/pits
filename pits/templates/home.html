@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %} 
+
+{{super()}}
+
+{# corrigi um defeito da página inicial #}
+<div class="container">
+    <div class="row" >
+        <div class="col-6 col-lg-3 col-md-4">
+                <a href="/pacientesfisio">
+                <img src="/static/imagens/teladelogin/fisio_preto.svg" id="fisioImg" width="100%" height=auto onmouseover="onHover();" 
+                 onmouseout="offHover();" onmouseover="" style="cursor: pointer; margin-top: 15px;" /></a>
+                                  <script>
+                                                      function onHover()
+                                            {
+                                                $("#fisioImg").attr('src', '/static/imagens/teladelogin/fisio.svg');
+                                            }
+                                            
+                                            function offHover()
+                                            {
+                                                $("#fisioImg").attr('src', '/static/imagens/teladelogin/fisio_preto.svg');
+                                            }
+                                                      
+                                  </script>
+                
+        </div>
+        
+        <div class="col-6 col-lg-3 col-md-4">
+                
+              <img src="/static/imagens/teladelogin/nutri.svg" id="nutriImg" width="100%" height=auto onmouseover="onHovernutri();" 
+                 onmouseout="offHovernutri();" onmouseover="" style="cursor: pointer; margin-top: 15px;" />
+                                  <script>
+                                                      function onHovernutri()
+                                            {
+                                                $("#nutriImg").attr('src', '/static/imagens/teladelogin/nutri_verde.svg');
+                                            }
+                                            
+                                            function offHovernutri()
+                                            {
+                                                $("#nutriImg").attr('src', '/static/imagens/teladelogin/nutri.svg');
+                                            }
+                                                      
+                                  </script>
+                
+        </div>
+        
+        <div class="col-6 col-lg-3 col-md-4">
+                <img src="/static/imagens/teladelogin/farmacia.svg" id="farmaciaImg" width="100%" height=auto onmouseover="onHoverfarmacia();" 
+                 onmouseout="offHoverfarmacia();" onmouseover="" style="cursor: pointer; margin-top: 15px;" />
+                                    <script>
+                                                      function onHoverfarmacia()
+                                            {
+                                                $("#farmaciaImg").attr('src', '/static/imagens/teladelogin/farmacia_ver.svg');
+                                            }
+                                            
+                                            function offHoverfarmacia()
+                                            {
+                                                $("#farmaciaImg").attr('src', '/static/imagens/teladelogin/farmacia.svg');
+                                            }
+                                                      
+                                    </script>
+                
+                
+        </div>    
+        
+        <div class="col-6 col-lg-3 col-md-4">
+                <img src="/static/imagens/teladelogin/psico.svg" id="psicoImg" width="100%" height=auto onmouseover="onHoverpsico();" 
+                 onmouseout="offHoverpsico();" onmouseover="" style="cursor: pointer; margin-top: 15px" />
+                                  <script>
+                                                      function onHoverpsico()
+                                            {
+                                                $("#psicoImg").attr('src', '/static/imagens/teladelogin/psico_verde.svg');
+                                            }
+                                            
+                                            function offHoverpsico()
+                                            {
+                                                $("#psicoImg").attr('src', '/static/imagens/teladelogin/psico.svg');
+                                            }
+                                                      
+                                  </script>
+                
+                
+        </div>    
+        
+        <div class="col-6 col-lg-3 col-md-4">
+             <a href="/pacientesenf">
+                <img src="/static/imagens/teladelogin/enfermagem.svg" id="enfermagemImg" width="100%" height=auto onmouseover="onHoverenfermagem();" 
+                 onmouseout="offHoverenfermagem();" onmouseover="" style="cursor: pointer; margin-top: 15px;" /></a>
+                                  <script>
+                                                      function onHoverenfermagem()
+                                            {
+                                                $("#enfermagemImg").attr('src', '/static/imagens/teladelogin/enfermagem_verde.svg');
+                                            }
+                                            
+                                            function offHoverenfermagem()
+                                            {
+                                                $("#enfermagemImg").attr('src', '/static/imagens/teladelogin/enfermagem.svg');
+                                            }
+                                                      
+                                  </script>
+                
+                
+        </div>    
+        
+        <div class="col-6 col-lg-3 col-md-4">
+            <a href="/pacientesmedico">
+                <img src="/static/imagens/teladelogin/medico.svg" id="medicoImg" width="100%" height=auto onmouseover="onHovermedico();" 
+                 onmouseout="offHovermedico();" onmouseover="" style="cursor: pointer; margin-top: 15px;" /></a>
+                                  <script>
+                                                      function onHovermedico()
+                                            {
+                                                $("#medicoImg").attr('src', '/static/imagens/teladelogin/medico_verde.svg');
+                                            }
+                                            
+                                            function offHovermedico()
+                                            {
+                                                $("#medicoImg").attr('src', '/static/imagens/teladelogin/medico.svg');
+                                            }
+                                                      
+                                  </script>
+                
+                &nbsp;
+        </div>    
+          &nbsp;
+    </div>
+      &nbsp;
+</div>
+    &nbsp;
+
+
+{% endblock %}

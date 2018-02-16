@@ -1,0 +1,414 @@
+{% extends "layout.html" %}
+
+
+{% block title %}CIRS-G Resultado{% endblock %}
+
+{{ super() }}
+
+
+
+{% block body %} 
+<style>
+span.step {
+  background: #33CCCC;
+  border-radius: 1.0em;
+  -moz-border-radius: 1.0em;
+  -webkit-border-radius: 1.0em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 2.3em;
+  margin-right: 5px;
+  text-align: center;
+  width: 2.3em; 
+}
+</style>
+
+  {% set score0 = 0 %}
+  {% set score1 = 0 %}
+  {% set score2 = 0 %}
+
+  
+    {%- if resultados.coracao == 0 %}
+      {% set score0 = score0 + 1 %}
+    {%- elif resultados.coracao == 1 %}
+      {% set score1 = score1 + 1 %}
+    {%- elif resultados.coracao == 2 %} 
+      {% set score2 = score2 + 1 %}
+    {%-  endif  %}
+    
+    
+    {%- if resultados.vascular == 0 %}
+      {% set score0 = score0 + 1 %}
+     {%- elif resultados.vascular == 1 %}
+      {% set score1 = score1 + 1 %}
+     {%- elif resultados.vascular == 2 %}
+      {% set score2 = score2 + 1 %}
+    {%-  endif  %}
+    
+      
+    {%- if resultados.hematopoietico == 0 %}
+      {% set score0 = score0 + 1 %}    
+    {%- elif resultados.hematopoietico == 1 %}
+      {% set score1 = score1 + 1 %}
+    {%- elif resultados.hematopoietico == 2 %}
+      {% set score2 = score2 + 1 %}
+    {%-  endif  %}
+    
+    {%- if resultados.respiratorio == 0 %}
+      {% set score0 = score0 + 1 %}
+    {%- elif resultados.respiratorio == 1 %}
+      {% set score1 = score1 + 1 %}
+    {%- elif resultados.respiratorio == 2 %}
+      {% set score2 = score2 + 1 %}
+    {%-  endif  %}
+    
+    {%- if resultados.otorrino == 0 %}
+      {% set score0 = score0 + 1 %}
+    {%- elif resultados.otorrino == 1 %}
+      {% set score1 = score1 + 1 %}
+    {%- elif resultados.otorrino == 2 %}
+      {% set score2 = score2 + 1 %}
+    {%-  endif  %}
+    
+    
+    {%- if resultados.gastrointestinalsup == 0 %}
+      {% set score0 = score0 + 1 %}
+    {%- elif resultados.gastrointestinalsup == 1 %}
+      {% set score1 = score1 + 1 %}
+    {%- elif resultados.gastrointestinalsup == 2 %}
+      {% set score2 = score2 + 1 %}
+    {%-  endif  %}
+    
+    
+    {%- if resultados.gastrointestinalinf == 0 %}
+      {% set score0 = score0 + 1 %}
+    {%- elif resultados.gastrointestinalinf == 1 %}
+      {% set score1 = score1 + 1 %}
+    {%- elif resultados.gastrointestinalinf == 2 %}
+      {% set score2 = score2 + 1 %}
+    {%-  endif  %}
+  
+    
+    {%- if resultados.figado == 0 %}
+      {% set score0 = score0 + 1 %}
+    {%- elif resultados.figado == 1 %}
+      {% set score1 = score1 + 1 %}
+    {%- elif resultados.figado == 2 %}
+      {% set score2 = score2 + 1 %}
+    {%-  endif  %}
+  
+  
+    {%- if resultados.renal == 0 %}
+      {% set score0 = score0 + 1 %}
+    {%- elif resultados.renal == 1 %}
+      {% set score1 = score1 + 1 %}
+    {%- elif resultados.renal == 2 %}
+      {% set score2 = score2 + 1 %}
+    {%-  endif  %}
+    
+    
+    {%- if resultados.genitourinario == 0 %}
+      {% set score0 = score0 + 1 %}
+    {%- elif resultados.genitourinario == 1 %}
+      {% set score1 = score1 + 1 %}
+    {%- elif resultados.genitourinario == 2 %}
+      {% set score2 = score2 + 1 %}
+    {%-  endif  %}
+    
+    {%- if resultados.musculosqueletico == 0 %}
+      {% set score0 = score0 + 1 %}
+    {%- elif resultados.musculosqueletico == 1 %}
+      {% set score1 = score1 + 1 %}
+    {%- elif resultados.musculosqueletico == 2 %}
+      {% set score2 = score2 + 1 %}
+    {%-  endif  %}
+    
+    {%- if resultados.neurologico == 0 %}
+      {% set score0 = score0 + 1 %}
+    {%- elif resultados.neurologico == 1 %}
+      {% set score1 = score1 + 1 %}
+    {%- elif resultados.neurologico == 2 %}
+      {% set score2 = score2 + 1 %}
+    {%-  endif  %}
+    
+    {%- if resultados.endocrino == 0 %}
+      {% set score0 = score0 + 1 %}
+    {%- elif resultados.endocrino == 1 %}
+      {% set score1 = score1 + 1 %}
+    {%- elif resultados.endocrino == 2 %}
+      {% set score2 = score2 + 1 %}
+    {%-  endif  %}
+    
+    {%- if resultados.psiquiatrica == 0 %}
+      {% set score0 = score0 + 1 %}
+    {%- elif resultados.psiquiatrica == 1 %}
+      {% set score1 = score1 + 1 %}
+    {%- elif resultados.psiquiatrica == 2 %}
+      {% set score2 = score2 + 1 %}
+    {%-  endif  %}
+    
+    
+    
+
+
+{#  CDN do chartJS #}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js" integrity="sha256-OHkZxrR7EXZQ8MlUC+Ww2+RedaJSP6DEsAukSt023dU=" crossorigin="anonymous"></script>
+&nbsp;
+<div class="row">
+  <div class="col-12 col-md-6">
+    <center><h4>Nº de problemas por grau de severidade</h4></center>
+      <canvas id="CirsgChart" width="200" height="200"></canvas>
+      <script>
+      // And for a doughnut chart
+      var ctx = document.getElementById("CirsgChart").getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ["Sem Problemas", "Problemas Leves", "Problemas Moderados", "Problemas Graves", "Problemas Extremamente Graves"],
+          datasets: [{
+            backgroundColor: [
+              "#CCCCCC",
+              "#99CCCC",
+              "#33CCCC",
+              "#CC6699",
+              "#CC3366"
+            ],
+            data: [{{ score0 }}, {{ score1 }}, {{ score2 }}, {{resultados.numcatsev3}}, {{resultados.numcatsev4}}]
+          }]
+        }
+      });
+      </script>
+  </div>
+    <div class="col-12 col-md-6">
+        <h4>Resp: {{ resultados.username_profissional }}</h4>
+        <h4>Paciente: {{resultados.paciente  }}</h4>
+        <h4>Idade:&nbsp;{{ idade }} anos</h4>
+        <h4>Data/Hora: {{ resultados.datareg|datetimeformat }} </h4>
+        &nbsp;
+        <center><h4>Resultado da avaliação</h4></center>
+        <hr style="width: 100%; color: #77cbcd; height: 1px; background-color:#77cbcd;" /> 
+        <h5>Número de categorias classificadas:&nbsp;<span class="step">{{ resultados.numcatclass }}</span></h5>
+        <hr style="width: 100%; color: #77cbcd; height: 1px; background-color:#77cbcd;" /> 
+        <h5>Pontuação Total:&nbsp;<span class="step">{{ resultados.pontuacao }}</span></h5>
+        <hr style="width: 100%; color: #77cbcd; height: 1px; background-color:#77cbcd;" /> 
+        <h5>Índice de gravidade:&nbsp;<span class="step">{{ resultados.indgravidade }}</span></h5>
+        <hr style="width: 100%; color: #77cbcd; height: 1px; background-color:#77cbcd;" /> 
+        <h5>Número de categorias com severidade de nível 3:&nbsp;<span class="step">{{ resultados.numcatsev3 }}</span></h5>
+        <hr style="width: 100%; color: #77cbcd; height: 1px; background-color:#77cbcd;" /> 
+        <h5>Número de categorias com severidade de nível 4:&nbsp;<span class="step">{{ resultados.numcatsev4 }}</span></h5>
+        <hr style="width: 100%; color: #77cbcd; height: 1px; background-color:#77cbcd;" /> 
+    </div>
+  
+  
+  
+  
+  <div class="col-12 col-md-6">
+    <center><h4>Categorias de severidade 3</h4></center>
+     
+     <table class="table table-striped table-responsive">
+       <thead>
+        <tr>
+          <th>#</th>
+          <th>Área afetada</th>
+        </tr>
+      </thead>
+        <tbody>
+         {%- set contador = 0 %}
+    
+          {%- if resultados.coracao == 3 %}
+            {%- set contador = contador + 1 %}
+            <tr><th scope="row">{{ contador }}</th>
+            <td>Coração</td></tr>
+          {%-  endif  %}
+      
+        
+          {%- if resultados.vascular == 3 %}
+           {%- set contador = contador + 1 %}
+            <tr><th scope="row">{{ contador }}</th>
+            <td>Cardiovascular</td></tr>
+          {%-  endif  %}
+        
+          {%- if resultados.hematopoietico == 3 %}
+             {%- set contador = contador + 1 %}
+            <tr><th scope="row">{{ contador }}</th>
+            <td>Hematopoiético</td></tr>
+          {%-  endif  %}
+        
+          {%- if resultados.respiratorio == 3 %}
+            {%- set contador = contador + 1 %}
+            <tr><th scope="row">{{ contador }}</th>
+            <td>Sistema Respiratório</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.otorrino == 3 %}
+            {%- set contador = contador + 1 %}
+            <tr><th scope="row">{{ contador }}</th>
+            <td>Olhos, ouvidos, nariz, garganta e laringe</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.gastrointestinalsup == 3 %}
+             {%- set contador = contador + 1 %}
+             <tr><th scope="row">{{ contador }}</th>
+             <td>Trato gastrointestinal superior</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.gastrointestinalinf == 3 %}
+             {%- set contador = contador + 1 %}
+            <tr><th scope="row">{{ contador }}</th>
+            <td>Trato gastrointestinal inferior</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.figado == 3 %}
+            {%- set contador = contador + 1 %}
+            <tr><th scope="row">{{ contador }}</th>
+            <td>Fígado</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.renal == 3 %}
+             {%- set contador = contador + 1 %}
+            <tr><th scope="row">{{ contador }}</th>
+            <td>Rins</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.genitourinario == 3 %}
+             {%- set contador = contador + 1 %}
+            <tr><th scope="row">{{ contador }}</th>
+            <td>Genitourinário</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.musculosqueletico == 3 %}
+             {%- set contador = contador + 1 %}
+            <tr><th scope="row">{{ contador }}</th>
+            <td>Musculosquelético</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.neurologico == 3 %}
+            {%- set contador = contador + 1 %}
+            <tr><th scope="row">{{ contador }}</th>
+            <td>Neurológico</td></tr>
+          {%-  endif  %}
+            
+          {%- if resultados.endocrino == 3 %}
+            {%- set contador = contador + 1 %}
+            <tr><th scope="row">{{ contador }}</th>
+            <td>Endócrino</td></tr>
+          {%-  endif  %}
+      
+          {%- if resultados.psiquiatrica == 3 %}
+            {%- set contador = contador + 1 %}
+            <tr><th scope="row">{{ contador }}</th>
+            <td>Psiquiátrica</td></tr>
+          {%-  endif  %}
+        </tbody>
+    </table>
+   </div>  
+   
+   
+   
+    <div class="col-12 col-md-6">
+    <center><h4>Categorias de severidade 4</h4></center>
+     
+     <table class="table table-striped table-responsive">
+       <thead>
+        <tr>
+          <th>#</th>
+          <th>Área afetada</th>
+        </tr>
+      </thead>
+        <tbody>
+         {%- set contador1 = 0 %}
+    
+          {%- if resultados.coracao == 4 %}
+            {%- set contador1 = contador1 + 1 %}
+            <tr><th scope="row">{{ contador1 }}</th>
+            <td>Coração</td></tr>
+          {%-  endif  %}
+      
+        
+          {%- if resultados.vascular == 4 %}
+           {%- set contador1 = contador1 + 1 %}
+            <tr><th scope="row">{{ contador1 }}</th>
+            <td>Cardiovascular</td></tr>
+          {%-  endif  %}
+        
+          {%- if resultados.hematopoietico == 4 %}
+             {%- set contador1 = contador1 + 1 %}
+            <tr><th scope="row">{{ contador1 }}</th>
+            <td>Hematopoiético</td></tr>
+          {%-  endif  %}
+        
+          {%- if resultados.respiratorio == 4 %}
+            {%- set contador1 = contador1 + 1 %}
+            <tr><th scope="row">{{ contador1 }}</th>
+            <td>Sistema Respiratório</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.otorrino == 4 %}
+            {%- set contador1 = contador1 + 1 %}
+            <tr><th scope="row">{{ contador1 }}</th>
+            <td>Olhos, ouvidos, nariz, garganta e laringe</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.gastrointestinalsup == 4 %}
+             {%- set contador1 = contador1 + 1 %}
+             <tr><th scope="row">{{ contador1 }}</th>
+             <td>Trato gastrointestinal superior</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.gastrointestinalinf == 4 %}
+             {%- set contador1 = contador1 + 1 %}
+            <tr><th scope="row">{{ contador1 }}</th>
+            <td>Trato gastrointestinal inferior</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.figado == 4 %}
+            {%- set contador1 = contador1 + 1 %}
+            <tr><th scope="row">{{ contador1 }}</th>
+            <td>Fígado</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.renal == 4 %}
+             {%- set contador1 = contador1 + 1 %}
+            <tr><th scope="row">{{ contador1 }}</th>
+            <td>Rins</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.genitourinario == 4 %}
+             {%- set contador1 = contador1 + 1 %}
+            <tr><th scope="row">{{ contador1 }}</th>
+            <td>Genitourinário</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.musculosqueletico == 4 %}
+             {%- set contador1 = contador1 + 1 %}
+            <tr><th scope="row">{{ contador1 }}</th>
+            <td>Musculosquelético</td></tr>
+          {%-  endif  %}
+          
+          {%- if resultados.neurologico == 4 %}
+            {%- set contador1 = contador1 + 1 %}
+            <tr><th scope="row">{{ contador1 }}</th>
+            <td>Neurológico</td></tr>
+          {%-  endif  %}
+            
+          {%- if resultados.endocrino == 4 %}
+            {%- set contador1 = contador1 + 1 %}
+            <tr><th scope="row">{{ contador1 }}</th>
+            <td>Endócrino</td></tr>
+          {%-  endif  %}
+      
+          {%- if resultados.psiquiatrica == 4 %}
+            {%- set contador1 = contador1 + 1 %}
+            <tr><th scope="row">{{ contador1 }}</th>
+            <td>Psiquiátrica</td></tr>
+          {%-  endif  %}
+        </tbody>
+    </table>
+  </div>
+</div>
+<div class="col-12 text-center">
+  <a href="/cirsgresultadosanteriores/{{resultados.idpaciente}}"<button type="button" class="btn btn-light">Ver prontuários anteriores</button></a>
+</div>
+&nbsp;
+{% endblock %}

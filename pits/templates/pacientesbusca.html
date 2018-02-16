@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}Pacientes Ativos{% endblock %}
+
+{% block body %} 
+
+&nbsp;
+
+
+<table class="table table-hover table-responsive" id="pacientes">
+  <thead>
+    <tr>
+      <th>Nº Registro</th>
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>Internado</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for usuario in usuarios %} 
+    <tr>
+      <th scope="row">{{ usuario.id }}</th>
+      <td>{{ usuario.first_name }} {{ usuario.last_name }}</td>
+      <td>{{ usuario.cpf }}</td>
+      <td>{{usuario.active}}</td>
+    </tr>
+    {%- endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
+
+ {% block customjs %}
+
+<script>
+ $(document).ready( function() {
+        $('#pacientes').dynatable();
+ });
+</script>
+
+
+
+
+ {% endblock %}

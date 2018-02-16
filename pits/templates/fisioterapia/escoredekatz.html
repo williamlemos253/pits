@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+
+{% block title %}Escore de Katz{% endblock %}
+
+{# Explica o funcionamento do escore de katz #}
+
+{{ super() }}
+{% block body %}
+
+<p>
+<center><h2>ÍNDICE  DE  KATZ  (Instruções)</h2></center><br><br>
+
+        <p>O Índice de independência nas Atividades da Vida Diária  baseia-se na avaliação das capacidades 
+do Idoso para o desempenho de um conjunto de atividades de que depende essa independência.</p>
+        <p>O nível de independência em relação a cada uma dessas atividades é interpretado do modo abaixo.</p> 
+        <p>A  recusa da realização de qualquer das atividades é considerada como  incapacidade  para  a  sua 
+execução.</p>
+       <p> A prova é baseada no exercício de cada atividade e não na afirmação da capacidade de a realizar.</p>
+
+
+<b>BANHO:</b>
+        <p> Independente:  Toma  banho  sozinho, ou necessita  apenas de ajuda para uma parte do corpo mais 
+difícil de atingir.</p>
+         <p>Dependente: Não toma banho sozinho, não é capaz de entrar ou saír do banho sem ajuda, necessita
+ de ajuda para lavar mais do que uma parte do corpo.</p>
+
+<b>VESTIR:</b>
+         <p>Independente: Procura  as  roupas e veste-se spzinho, por completo, podendo apenas necessitar de
+ ajuda para apertar os cadarços dos sapatos.</p>
+        <p> Dependente:  Não é capaz de recolher as roupas e  não  consegue vestir-se  por completo, sozinho.</p>
+
+<b>HIGIENE/SANITÁRIOS:</b>
+         <p>Independente: Utiliza  sozinho o sanitário,  limpa-se  e veste-se  sem ajuda, utiliza  e despeja o bacio 
+sem ajuda.</p>
+         <p>Dependente:    Usa sonda vesical ou fralda ou necessita de ajuda para utilizar a sanita.</p>
+
+<b>TRANSFERÊNCIA:</b>
+         <p>Independente:  Levanta-se  e  deita-se na cama  e senta-se e levanta-se da cadeira,  sozinho. (Pode
+ utilizar prótese ou qualquer ajuda mecânica.)</p>
+        <p> Dependente:   Não é capaz de executar qualquer transferência sòzinho, ou necessita de ajuda para
+ realizar qualquer das transferências referidas.</p>
+
+<b>CONTINÊNCIA:</b>
+        <p> Independente: Controla os esfíncteres anal e vesical, só excepcionalmente perdendo fezes ou urina.</p>
+         <p>Dependente:   Tem incontinência esfincteriana parcial ou total. Usa sempre, ou com frequência, 
+sonda vesical, clisteres ou fraldas.</p>
+
+<b>ALIMENTAÇÃO:</b>
+         <p>Independente:  Serve-se  dos  alimentos,  utiliza  corretamente  pratos  e  talheres  para  ingerir os 
+alimentos.( Pode necessitar de ajuda só para cortar ou outras mais pesadas.)</p>
+        <p> Dependente:  Não se alimenta sem ajuda. Faz alimentação enteral  por  sonda, ou  parenteral.</p>
+&nbsp;
+<center><h5>Dentro do sistema a cor azul significa <b>Independente</b> e a cor cinza <b>Dependente</b></h5></center>
+&nbsp;
+<div class="row">
+    <div class="col-6 text-center">
+        <img src="/static/imagens/fisioterapia/icones/comida.svg" width="30%" class="mx-auto d-block" alt="Independente">        
+        <h4>Independente</h4>
+        <b>1 Ponto</b>
+    </div>
+    <div class="col-6 text-center">
+        <img src="/static/imagens/fisioterapia/icones/comida_pb.svg" width="30%" class="mx-auto d-block" alt="Dependente">        
+        <h4>Dependente</h4>
+        <b>0 Pontos</b>
+    </div>
+</div>
+
+
+<table class="table table-responsive">
+  <thead>
+    <tr>
+      <th>Pontuação</th>
+      <th>Nível de Dependência</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+      <th class="table-danger" scope="row">0</th>
+      <td class="table-danger">Muito Dependente</td>
+    </tr>
+    <tr>
+      <th class="table-danger" scope="row">1</th>
+      <td class="table-danger">Muito Dependente</td>
+    </tr>
+    <tr>
+      <th class="table-danger" scope="row">2</th>
+      <td class="table-danger">Muito Dependente</td>
+    </tr>
+    <tr>
+      <th class="table-warning" scope="row">3</th>
+      <td class="table-warning">Dependência Moderada</td>
+    </tr>
+    <tr>
+      <th class="table-warning" scope="row">4</th>
+      <td class="table-warning">Dependência Moderada</td>
+    </tr>
+    <tr>
+      <th class="table-info" scope="row">5</th>
+      <td class="table-info">Independente</td>
+    </tr>
+    <tr>
+      <th class="table-info" scope="row">6</th>
+      <td class="table-info">Independente</td>
+    </tr>
+  </tbody>
+</table>
+<center><i>Fonte: https://consultgeri.org/try-this/general-assessment/issue-2.pdf</i></center>
+
+{% endblock %}
+
+
+
+
+
+{% block footer %}
+{% endblock %}
+

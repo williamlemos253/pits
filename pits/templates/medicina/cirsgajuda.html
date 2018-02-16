@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}CIRS-G{% endblock %}
+
+{{ super() }}
+{% block body %} 
+
+<div class="container">
+  &nbsp;
+  <center><h3>CIRS-G</h3></center>
+  
+  <p>As comorbidades são doenças ou distúrbios que coexistem com uma doença 
+  de interesse. Inicialmente desenvolvido por Linn et al., O CIRS foi posteriormente 
+  revisado por Miller et al. para refletir problemas comuns dos idosos. 
+  Eles renomearam o índice "Escala de classificação de doença cumulativa para geriatria", 
+  comumente abreviado CIRS-G. Este sistema de pontuação mede a carga de doença médica crônica ("morbidade"), 
+  levando em consideração a gravidade das doenças crônicas em 14 itens que representam os sistemas corporais individuais.</p>
+  
+  <b>As regras gerais para classificação de gravidade são:</b>
+  <p><b>0 →</b>&nbsp;Nenhum problema que afeta esse sistema.</p>
+  <p> <b>1 →</b>&nbsp;Problema leve atual ou problema significativo passado.</p>
+  <p><b>2 →</b>&nbsp;Moderada deficiência ou morbidade e / ou requer terapia de primeira linha.</p>
+  <p><b>3 →</b>&nbsp;Problema grave e / ou dificuldade constante e significativa e / ou difícil de controlar problemas crônicos.</p>
+  <p><b>4 →</b>&nbsp;Problema extremamente grave e / ou tratamento imediato necessário e / ou falência de órgão e / ou comprometimento funcional severo.</p>
+  
+  <p>O resultado final cumulativo pode variar teoricamente, variando de 0 a 56 (embora seja impossível um escore muito alto).</p>
+  
+  <center>Fonte:&nbsp;<a href="http://catalogue.iugm.qc.ca/GEIDEFile/CIRSG.PDF?Archive=102955792013&File=CIRSG_PDF">http://catalogue.iugm.qc.ca/GEIDEFile/CIRSG.PDF?Archive=102955792013&File=CIRSG_PDF</a></center>
+&nbsp;
+</div>
+  &nbsp;
+  &nbsp;
+{% endblock %}
+  &nbsp;

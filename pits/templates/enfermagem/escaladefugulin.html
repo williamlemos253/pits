@@ -1,0 +1,532 @@
+{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Escala de Fugulin{% endblock %}
+
+{% block body %} 
+&nbsp;
+{{ super() }}
+<div id="accordion" role="tablist" aria-multiselectable="true">
+    <form method="post">
+    <div class="row">
+     
+        <div class="col-12">
+        
+             {{ FugulinForm.csrf_token}}
+             {{ FugulinForm.hidden_tag() }}
+             {{ wtf.form_errors(FugulinForm, hiddens="only") }}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{ wtf.form_field(FugulinForm.paciente, readonly="True", value=paciente) }}
+                        </div>                   
+                        <div class="col-sm-6">
+                            {{ wtf.form_field(FugulinForm.username_profissional, readonly="True", value=current_user.first_name+" "+current_user.last_name) }}
+                        </div>
+                    </div>
+        </div>
+          <div class="col-12 col-md-6">
+              <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" class="collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-target="#collapseOne" style="cursor: pointer;">
+                  <h5 class="mb-0">
+                      #1 Estado Mental 
+                  </h5>
+                </div>
+                <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                     
+                            <center><h5>Classifique as áreas de cuidado do paciente numa escala de <b>1 - 4</b></h5></center>
+                            <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo1" aria-expanded="false" aria-controls="collapseOne">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo1">
+                    
+                            <p><span style="color: red">&nbsp;1</span> Orientação no tempo e espaço.</p>
+                            
+                            <p><span style="color: red">&nbsp;2</span> Períodos de desorientação no tempo e espaço </p>
+                            
+                            <p><span style="color: red">&nbsp;3</span> Perídos de inconsciência</p>
+                            
+                            <p><span style="color: red">&nbsp;4</span> Inconsciente</p></div>
+  
+                                    <div>  
+                                        <div class="text-center" >
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="estadomental-1" class="btn btn-info btn-lg" class="collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-target="#collapseOne">
+                                                    <input type="radio" name="estadomental" id="estadomental-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="estadomental-2" class="btn btn-info btn-lg" class="collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-target="#collapseOne">
+                                                    <input type="radio" name="estadomental" id="estadomental-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="estadomental-3" class="btn btn-info btn-lg" class="collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-target="#collapseOne">
+                                                    <input type="radio" name="estadomental" id="estadomental-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="estadomental-4" class="btn btn-info btn-lg" class="collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-target="#collapseOne">
+                                                    <input type="radio" name="estadomental" id="estadomental-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                        </div>
+                                    </div>  
+                                         &nbsp;
+                                     <div style="display:none;">
+                                            {{ FugulinForm.estadomental }}
+                                     </div>   
+                                       
+                                          
+                  </div>
+                </div>
+              </div>
+              &nbsp;
+      
+        
+        
+              &nbsp;
+         
+              <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" class="collapsed" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" data-target="#collapseTwo" style="cursor: pointer;">
+                  <h5 class="mb-0">
+                      #2 Oxigenação 
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                     
+                            <center><h5>Classifique as áreas de cuidado do paciente numa escala de <b>1 - 4</b></h5></center>
+                            <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo2" aria-expanded="false" aria-controls="collapseTwo">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo2">
+                    
+                            <p><span style="color: red">&nbsp;1</span> Não depende de oxigênio</p>
+                            
+                            <p><span style="color: red">&nbsp;2</span> Uso intermitente de máscara ou cateter de oxigênio </p>
+                            
+                            <p><span style="color: red">&nbsp;3</span> Uso contínuo de máscara ou cateter de oxigênio</p>
+                            
+                            <p><span style="color: red">&nbsp;4</span> Ventilação mecânica (uso de ventilador)</p></div>
+  
+                                    <div>  
+                                        <div class="text-center" >
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="oxigenacao-1" class="btn btn-info btn-lg" class="collapsed" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" data-target="#collapseTwo">
+                                                    <input type="radio" name="oxigenacao" id="oxigenacao-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="oxigenacao-2" class="btn btn-info btn-lg" class="collapsed" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" data-target="#collapseTwo">
+                                                    <input type="radio" name="oxigenacao" id="oxigenacao-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="oxigenacao-3" class="btn btn-info btn-lg" class="collapsed" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" data-target="#collapseTwo">
+                                                    <input type="radio" name="oxigenacao" id="oxigenacao-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="oxigenacao-4" class="btn btn-info btn-lg" class="collapsed" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" data-target="#collapseTwo">
+                                                    <input type="radio" name="oxigenacao" id="oxigenacao-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                        </div>
+                                    </div>  
+                                         &nbsp;
+                                     <div style="display:none;">
+                                            {{ FugulinForm.oxigenacao }}
+                            </div>   
+                                       
+                                          
+                  </div>
+                </div>
+              </div>
+              &nbsp;
+        
+            
+              &nbsp;
+        
+              <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" class="collapsed" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseTree" aria-expanded="true" aria-controls="collapseTree" data-target="#collapseTree" style="cursor: pointer;">
+                  <h5 class="mb-0">
+                      #3 Sinais vitais 
+                  </h5>
+                </div>
+                <div id="collapseTree" class="collapse" role="tabpanel" aria-labelledby="headingTree">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                     
+                            <center><h5>Classifique as áreas de cuidado do paciente numa escala de <b>1 - 4</b></h5></center>
+                            <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo3" aria-expanded="false" aria-controls="collapseTree">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo3">
+                    
+                            <p><span style="color: red">&nbsp;1</span> Controle de rotina (8 horas)</p>
+                            
+                            <p><span style="color: red">&nbsp;2</span> Controle em intervalos de 6 horas </p>
+                            
+                            <p><span style="color: red">&nbsp;3</span> Controle em intervalos de 4 horas </p>
+                            
+                            <p><span style="color: red">&nbsp;4</span> Controle em intervalos menores ou iguais a 2 horas </p></div>
+  
+                                    <div>  
+                                        <div class="text-center" >
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="sinaisvitais-1" class="btn btn-info btn-lg" class="collapsed" id="headingTree" data-toggle="collapse" data-parent="#accordion" href="#collapseTree" aria-expanded="true" aria-controls="collapseTree" data-target="#collapseTree">
+                                                    <input type="radio" name="sinaisvitais" id="sinaisvitais-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="sinaisvitais-2" class="btn btn-info btn-lg" class="collapsed" id="headingTree" data-toggle="collapse" data-parent="#accordion" href="#collapseTree" aria-expanded="true" aria-controls="collapseTree" data-target="#collapseTree">
+                                                    <input type="radio" name="sinaisvitais" id="sinaisvitais-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="sinaisvitais-3" class="btn btn-info btn-lg" class="collapsed" id="headingTree" data-toggle="collapse" data-parent="#accordion" href="#collapseTree" aria-expanded="true" aria-controls="collapseTree" data-target="#collapseTree">
+                                                    <input type="radio" name="sinaisvitais" id="sinaisvitais-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="sinaisvitais-4" class="btn btn-info btn-lg" class="collapsed" id="headingTree" data-toggle="collapse" data-parent="#accordion" href="#collapseTree" aria-expanded="true" aria-controls="collapseTree" data-target="#collapseTree">
+                                                    <input type="radio" name="sinaisvitais" id="sinaisvitais-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                        </div>
+                                    </div>  
+                                         &nbsp;
+                                     <div style="display:none;">
+                                            {{ FugulinForm.sinaisvitais }}
+                            </div>   
+                                       
+                                          
+                  </div>
+                </div>
+              </div>
+                &nbsp;
+    
+              <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" class="collapsed" id="headingFour" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour" data-target="#collapseFour" style="cursor: pointer;">
+                  <h5 class="mb-0">
+                      #4 Motibilidade
+                  </h5>
+                </div>
+                <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                     
+                            <center><h5>Classifique as áreas de cuidado do paciente numa escala de <b>1 - 4</b></h5></center>
+                            <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo4" aria-expanded="false" aria-controls="collapseFour">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo4">
+                    
+                            <p><span style="color: red">&nbsp;1</span> Movimenta todos os segmentos corporais </p>
+                            
+                            <p><span style="color: red">&nbsp;2</span> Limitação de movimentos </p>
+                            
+                            <p><span style="color: red">&nbsp;3</span> Dificuldade para movimentar segmentos corporais. Mudança de decúbito e movimentação passiva auxiliada pela enfermagem </p>
+                            
+                            <p><span style="color: red">&nbsp;4</span> Incapaz de movimentar qualquer segmento corporal. Mudança de decúbito e movimentação passiva programada e realizada pela enfermagem</p></div>
+  
+                                    <div>  
+                                        <div class="text-center" >
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="motibilidade-1" class="btn btn-info btn-lg" class="collapsed" id="headingFour" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour" data-target="#collapseFour">
+                                                    <input type="radio" name="motibilidade" id="motibilidade-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="motibilidade-2" class="btn btn-info btn-lg" class="collapsed" id="headingFour" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour" data-target="#collapseFour">
+                                                    <input type="radio" name="motibilidade" id="motibilidade-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="motibilidade-3" class="btn btn-info btn-lg" class="collapsed" id="headingFour" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour" data-target="#collapseFour">
+                                                    <input type="radio" name="motibilidade" id="motibilidade-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="motibilidade-4" class="btn btn-info btn-lg" class="collapsed" id="headingFour" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour" data-target="#collapseFour">
+                                                    <input type="radio" name="motibilidade" id="motibilidade-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                        </div>
+                                    </div>  
+                                    &nbsp;
+                                     <div style="display:none;">
+                                            {{ FugulinForm.motibilidade }}
+                                    </div>   
+                                          
+                  </div>
+                </div>
+              </div>
+              &nbsp;
+  
+
+
+              <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" class="collapsed" id="headingFive" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive" data-target="#collapseFive" style="cursor: pointer;">
+                  <h5 class="mb-0">
+                      #5 Deambulação 
+                  </h5>
+                </div>
+                <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                     
+                            <center><h5>Classifique as áreas de cuidado do paciente numa escala de <b>1 - 4</b></h5></center>
+                            <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo5" aria-expanded="false" aria-controls="collapseFive">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo5">
+                    
+                            <p><span style="color: red">&nbsp;1</span> Deambular </p>
+                            
+                            <p><span style="color: red">&nbsp;2</span> Necessita de auxílio para deambular </p>
+                            
+                            <p><span style="color: red">&nbsp;3</span> Locomoção através de cadeira de rodas </p>
+                            
+                            <p><span style="color: red">&nbsp;4</span> Restrito ao leito </p></div>
+  
+                                    <div>  
+                                        <div class="text-center" >
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="deambulacao-1" class="btn btn-info btn-lg" class="collapsed" id="headingFive" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive" data-target="#collapseFive">
+                                                    <input type="radio" name="deambulacao" id="deambulacao-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="deambulacao-2" class="btn btn-info btn-lg" class="collapsed" id="headingFive" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive" data-target="#collapseFive">
+                                                    <input type="radio" name="deambulacao" id="deambulacao-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="deambulacao-3" class="btn btn-info btn-lg" class="collapsed" id="headingFive" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive" data-target="#collapseFive">
+                                                    <input type="radio" name="deambulacao" id="deambulacao-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="deambulacao-4" class="btn btn-info btn-lg" class="collapsed" id="headingFive" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive" data-target="#collapseFive">
+                                                    <input type="radio" name="deambulacao" id="deambulacao-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                        </div>
+                                    </div>  
+                                         &nbsp;
+                                     <div style="display:none;">
+                                            {{ FugulinForm.deambulacao }}
+                            </div>   
+                                       
+                                          
+                  </div>
+                </div>
+              </div>
+              &nbsp;
+            {# fecha as 5 primeiras colunas #}
+      </div>
+      <div class="col-12 col-md-6">
+         <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" class="collapsed" id="headingSix" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix" data-target="#collapseSix" style="cursor: pointer;">
+                  <h5 class="mb-0">
+                      #6 Alimentção 
+                  </h5>
+                </div>
+                <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                     
+                            <center><h5>Classifique as áreas de cuidado do paciente numa escala de <b>1 - 4</b></h5></center>
+                            <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo6" aria-expanded="false" aria-controls="collapseSix">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo6">
+                    
+                            <p><span style="color: red">&nbsp;1</span> Auto-suficiente </p>
+                            
+                            <p><span style="color: red">&nbsp;2</span> Por boca com auxílio </p>
+                            
+                            <p><span style="color: red">&nbsp;3</span> Através de sonda nasogástrica </p>
+                            
+                            <p><span style="color: red">&nbsp;4</span> Através de cateter central </p></div>
+  
+                                    <div>  
+                                        <div class="text-center" >
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="alimentacao-1" class="btn btn-info btn-lg" class="collapsed" id="headingSix" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix" data-target="#collapseSix">
+                                                    <input type="radio" name="alimentacao" id="alimentacao-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="alimentacao-2" class="btn btn-info btn-lg" class="collapsed" id="headingSix" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix" data-target="#collapseSix">
+                                                    <input type="radio" name="alimentacao" id="alimentacao-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="alimentacao-3" class="btn btn-info btn-lg" class="collapsed" id="headingSix" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix" data-target="#collapseSix">
+                                                    <input type="radio" name="alimentacao" id="alimentacao-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="alimentacao-4" class="btn btn-info btn-lg" class="collapsed" id="headingSix" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix" data-target="#collapseSix">
+                                                    <input type="radio" name="alimentacao" id="alimentacao-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                        </div>
+                                    </div>  
+                                         &nbsp;
+                                     <div style="display:none;">
+                                            {{ FugulinForm.alimentacao }}
+                            </div>   
+                                       
+                                          
+                  </div>
+                </div>
+              </div>
+              &nbsp;
+                 <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" class="collapsed" id="headingSeven" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven" data-target="#collapseSeven" style="cursor: pointer;">
+                  <h5 class="mb-0">
+                      #7 Cuidado Corporal
+                  </h5>
+                </div>
+                <div id="collapseSeven" class="collapse" role="tabpanel" aria-labelledby="headingSeven">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                     
+                            <center><h5>Classifique as áreas de cuidado do paciente numa escala de <b>1 - 4</b></h5></center>
+                            <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo7" aria-expanded="false" aria-controls="collapseSeven">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo7">
+                    
+                            <p><span style="color: red">&nbsp;1</span> Auto-suficiente </p>
+                            
+                            <p><span style="color: red">&nbsp;2</span> Auxílio no banho de chuveiro e/ou na higiene oral </p>
+                            
+                            <p><span style="color: red">&nbsp;3</span> Banho de chuveiro, higiene oral realizada pela enfermagem </p>
+                            
+                            <p><span style="color: red">&nbsp;4</span> Banho no leito, higiene oral realizada pela enfermagem </p></div>
+  
+                                    <div>  
+                                        <div class="text-center" >
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="cuidadocorporal-1" class="btn btn-info btn-lg" class="collapsed" id="headingSeven" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven" data-target="#collapseSeven">
+                                                    <input type="radio" name="cuidadocorporal" id="cuidadocorporal-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="cuidadocorporal-2" class="btn btn-info btn-lg" class="collapsed" id="headingSeven" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven" data-target="#collapseSeven">
+                                                    <input type="radio" name="cuidadocorporal" id="cuidadocorporal-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="cuidadocorporal-3" class="btn btn-info btn-lg" class="collapsed" id="headingSeven" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven" data-target="#collapseSeven">
+                                                    <input type="radio" name="cuidadocorporal" id="cuidadocorporal-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="cuidadocorporal-4" class="btn btn-info btn-lg" class="collapsed" id="headingSeven" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven" data-target="#collapseSeven">
+                                                    <input type="radio" name="cuidadocorporal" id="cuidadocorporal-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                        </div>
+                                    </div>  
+                                         &nbsp;
+                                     <div style="display:none;">
+                                            {{ FugulinForm.cuidadocorporal }}
+                            </div>   
+                                       
+                                          
+                  </div>
+                </div>
+              </div>
+              &nbsp;
+                        <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" class="collapsed" id="headingEight" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="true" aria-controls="collapseEight" data-target="#collapseEight" style="cursor: pointer;">
+                  <h5 class="mb-0">
+                      #8 Eliminação
+                  </h5>
+                </div>
+                <div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingEight">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                     
+                            <center><h5>Classifique as áreas de cuidado do paciente numa escala de <b>1 - 4</b></h5></center>
+                            <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo8" aria-expanded="false" aria-controls="collapseEight">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo8">
+                    
+                            <p><span style="color: red">&nbsp;1</span> Auto-suficiente </p>
+                            
+                            <p><span style="color: red">&nbsp;2</span> Auxílio no banho de chuveiro e/ou na higiene oral </p>
+                            
+                            <p><span style="color: red">&nbsp;3</span> Banho de chuveiro, higiene oral realizada pela enfermagem </p>
+                            
+                            <p><span style="color: red">&nbsp;4</span> Banho no leito, higiene oral realizada pela enfermagem </p></div>
+  
+                                    <div>  
+                                        <div class="text-center" >
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="eliminacao-1" class="btn btn-info btn-lg" class="collapsed" id="headingEight" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="true" aria-controls="collapseEight" data-target="#collapseEight">
+                                                    <input type="radio" name="eliminacao" id="eliminacao-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="eliminacao-2" class="btn btn-info btn-lg" class="collapsed" id="headingEight" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="true" aria-controls="collapseEight" data-target="#collapseEight">
+                                                    <input type="radio" name="eliminacao" id="eliminacao-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="eliminacao-3" class="btn btn-info btn-lg" class="collapsed" id="headingEight" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="true" aria-controls="collapseEight" data-target="#collapseEight">
+                                                    <input type="radio" name="eliminacao" id="eliminacao-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="eliminacao-4" class="btn btn-info btn-lg" class="collapsed" id="headingEight" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="true" aria-controls="collapseEight" data-target="#collapseEight">
+                                                    <input type="radio" name="eliminacao" id="eliminacao-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                        </div>
+                                    </div>  
+                                         &nbsp;
+                                     <div style="display:none;">
+                                            {{ FugulinForm.eliminacao }}
+                            </div>   
+                                       
+                                          
+                  </div>
+                </div>
+              </div>
+              &nbsp;
+              
+                                 <div class="card">
+                <div class="card-header alert-info btn-info" role="tab" class="collapsed" id="headingNine" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="true" aria-controls="collapseNine" data-target="#collapseNine" style="cursor: pointer;">
+                  <h5 class="mb-0">
+                      #9 Terapêutica
+                  </h5>
+                </div>
+                <div id="collapseNine" class="collapse" role="tabpanel" aria-labelledby="headingNine">
+                  <div class="card-block" style="margin-left:10px; margin-right:10px;">
+                     &nbsp;
+                     
+                            <center><h5>Classifique as áreas de cuidado do paciente numa escala de <b>1 - 4</b></h5></center>
+                            <div class="text-center"><button class="btn btn-info" type="button" data-toggle="collapse" data-target="#resumo9" aria-expanded="false" aria-controls="collapseNine">
+                                          Como classificar?
+                                        </button></div>
+                                        &nbsp;
+                            <div class="collapse" id="resumo9">
+                    
+                            <p><span style="color: red">&nbsp;1</span> Instramuscular ou via oral </p>
+                            
+                            <p><span style="color: red">&nbsp;2</span> EV intermitente </p>
+                            
+                            <p><span style="color: red">&nbsp;3</span> Endovenosa (EV) contínua ou através de sonda nasogástrica </p>
+                            
+                            <p><span style="color: red">&nbsp;4</span> Uso de drogas vasoativas para manutenção de pressão arterial </p></div>
+  
+                                    <div>  
+                                        <div class="text-center" >
+                                              <div class="btn-group" data-toggle="buttons">
+                                                  <label for="terapeutica-1" class="btn btn-info btn-lg" class="collapsed" id="headingNine" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="true" aria-controls="collapseNine" data-target="#collapseNine">
+                                                    <input type="radio" name="terapeutica" id="terapeutica-1" value="1" autocomplete="off">1
+                                                  </label>
+                                                  <label for="terapeutica-2" class="btn btn-info btn-lg" class="collapsed" id="headingNine" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="true" aria-controls="collapseNine" data-target="#collapseNine">
+                                                    <input type="radio" name="terapeutica" id="terapeutica-2" value="2" autocomplete="off">2
+                                                  </label>
+                                                  <label for="terapeutica-3" class="btn btn-info btn-lg" class="collapsed" id="headingNine" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="true" aria-controls="collapseNine" data-target="#collapseNine">
+                                                    <input type="radio" name="terapeutica" id="terapeutica-3" value="3" autocomplete="off">3
+                                                  </label>
+                                                  <label for="terapeutica-4" class="btn btn-info btn-lg" class="collapsed" id="headingNine" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="true" aria-controls="collapseNine" data-target="#collapseNine">
+                                                    <input type="radio" name="terapeutica" id="terapeutica-4" value="4" autocomplete="off">4
+                                                  </label>
+                                              </div>
+                                        </div>
+                                    </div>  
+                                         &nbsp;
+                                     <div style="display:none;">
+                                            {{ FugulinForm.terapeutica }}
+                            </div>   
+                                       
+                                          
+                  </div>
+                </div>
+              </div>
+              &nbsp;
+      
+      </div>
+          <div class="col-12 text-center">
+            
+              {{ FugulinForm.salvar }}
+          </div>
+          
+    </form>
+</div>
+</div>
+
+{% endblock %}
