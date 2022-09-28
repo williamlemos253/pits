@@ -163,7 +163,7 @@ def cadastrofuncionario():
                     if form.validate_on_submit():
                         password2 = bcrypt.hashpw(form.password.data.encode('utf-8'), bcrypt.gensalt())
                         cadastro = User(username=form.username.data, password=password2, email=form.email.data, active=form.active.data,
-                        first_name=form.first_name.data, last_name=form.last_name.data, paciente=False, cpf=form.cpf.data)
+                        first_name=form.first_name.data, last_name=form.last_name.data, paciente=False, datanasc=form.datanasc.data, cpf=form.cpf.data)
                         
                         db.session.add(cadastro)
                         db.session.commit()
